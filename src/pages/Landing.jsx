@@ -699,121 +699,25 @@ export default function Landing() {
             </p>
           </FadeUp>
 
-          {/* ── Tier 1: Chỉ đạo Dự án ── */}
-          <FadeUp delay={0.1}>
-            <div className="max-w-xs mx-auto">
-              <div className="relative overflow-hidden rounded-2xl group transition-transform duration-500 hover:-translate-y-1"
-                style={{ background: 'linear-gradient(160deg, #280A1E 0%, #3C1230 50%, #280A1E 100%)', border: '1px solid rgba(201,168,76,0.30)' }}>
-                <div className="h-0.5" style={{ background: 'linear-gradient(90deg, transparent, #C9A84C 35%, #F0D885 55%, transparent)' }} />
-                <div className="relative h-80 overflow-hidden">
-                  <div className="absolute bottom-0 inset-x-0 h-1/2 pointer-events-none"
-                    style={{ background: 'linear-gradient(to top, rgba(40,10,30,0.88) 0%, transparent 100%)' }} />
-                  <div className="absolute bottom-0 inset-x-0 h-2/3 pointer-events-none"
-                    style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.20) 0%, transparent 65%)' }} />
-                  <img src="/images/cao-thi-ngoc-dung.png" alt="Bà Cao Thị Ngọc Dung"
-                    className="w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
-                    style={{ mixBlendMode: 'lighten' }} />
-                </div>
-                <div className="px-6 pb-6 pt-3 text-center">
-                  <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-3"
-                    style={{ background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.35)', color: '#E8C570' }}>
-                    Chỉ đạo Dự án
-                  </span>
-                  <h3 className="text-white font-semibold text-xl leading-tight">Bà Cao Thị Ngọc Dung</h3>
-                  <p className="text-[#C9A84C] text-sm mt-1 mb-3 font-medium">Chủ tịch HAWEE</p>
-                  <p className="text-white/55 text-xs leading-relaxed italic">
-                    "Chúng tôi kiến tạo thế hệ nữ lãnh đạo viết nên trang sử mới cho TP.HCM."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeUp>
-
-          {/* Connector 1→2 */}
-          <div className="flex justify-center my-5">
-            <div className="w-px h-8" style={{ background: 'linear-gradient(to bottom, rgba(201,168,76,0.4), rgba(201,24,127,0.3))' }} />
-          </div>
-
-          {/* ── Tier 2: Trưởng Ban + Phó Ban ── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
+          {/* Ban Chỉ Đạo — Simple 3-column grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              {
-                img: 'huynh-thi-xuan-lien-2.png',
-                role: 'Trưởng Ban Tổ chức',
-                name: 'Bà Huỳnh Thị Xuân Liên',
-                title: 'Phó Chủ tịch HAWEE',
-                quote: '"Mỗi học viên được chọn là một cam kết từ HAWEE — đồng hành, trao quyền và tạo tác động bền vững."',
-                strip: 'linear-gradient(90deg, transparent, #C9187F 35%, #E87FAA 55%, transparent)',
-                chipBg: 'rgba(201,24,127,0.15)', chipBorder: 'rgba(201,24,127,0.32)', chipText: '#E87FAA',
-                cardBorder: 'rgba(201,24,127,0.25)', titleColor: '#E87FAA',
-              },
-              {
-                img: 'tran-phuong-ngoc-thao.png',
-                role: 'Phó Ban Tổ chức',
-                name: 'Bà Trần Phương Ngọc Thảo',
-                title: 'Ủy viên Ban Thường vụ HAWEE',
-                quote: '"Chúng tôi không chỉ tổ chức một chương trình — chúng tôi tạo ra không gian để phụ nữ bứt phá."',
-                strip: 'linear-gradient(90deg, transparent, #9B1060 35%, #C06080 55%, transparent)',
-                chipBg: 'rgba(155,16,96,0.15)', chipBorder: 'rgba(155,16,96,0.30)', chipText: '#D07090',
-                cardBorder: 'rgba(155,16,96,0.22)', titleColor: '#D07090',
-              },
-            ].map(({ img, role, name, title, quote, strip, chipBg, chipBorder, chipText, cardBorder, titleColor }, i) => (
-              <FadeUp key={i} delay={0.15 + i * 0.1}>
-                <div className="relative overflow-hidden rounded-2xl group transition-transform duration-500 hover:-translate-y-1 h-full"
-                  style={{ background: 'linear-gradient(160deg, #280A1E 0%, #3C1230 50%, #280A1E 100%)', border: `1px solid ${cardBorder}` }}>
-                  <div className="h-0.5" style={{ background: strip }} />
-                  <div className="relative h-60 overflow-hidden">
-                    <div className="absolute bottom-0 inset-x-0 h-1/2 pointer-events-none"
-                      style={{ background: 'linear-gradient(to top, rgba(40,10,30,0.88) 0%, transparent 100%)' }} />
+              { img: 'cao-thi-ngoc-dung.png',   name: 'Cao Thị Ngọc Dung' },
+              { img: 'nguyen-thi-hanh.png',     name: 'Nguyễn Thị Hạnh' },
+              { img: 'huynh-thi-xuan-lien-2.png', name: 'Huỳnh Thị Xuân Liên' },
+              { img: 'tieu-yen-trinh.png',      name: 'Tiêu Yến Trinh' },
+              { img: 'luong-ngoc-tien.png',     name: 'Lương Ngọc Tiên' },
+              { img: 'tran-phuong-ngoc-thao.png', name: 'Trần Phương Ngọc Thảo' },
+            ].map(({ img, name }, i) => (
+              <FadeUp key={i} delay={0.1 + i * 0.05}>
+                <div className="flex flex-col items-center">
+                  <div className="w-full aspect-square overflow-hidden rounded-xl group transition-transform duration-500 hover:-translate-y-1"
+                    style={{ background: 'linear-gradient(160deg, #280A1E 0%, #3C1230 50%, #280A1E 100%)', border: '1px solid rgba(255,255,255,0.12)' }}>
                     <img src={`/images/${img}`} alt={name}
-                      className="w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.04]"
                       style={{ mixBlendMode: 'lighten' }} />
                   </div>
-                  <div className="px-5 pb-5 pt-3 text-center">
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full inline-block mb-2"
-                      style={{ background: chipBg, border: `1px solid ${chipBorder}`, color: chipText }}>
-                      {role}
-                    </span>
-                    <h3 className="text-white font-semibold text-base leading-tight">{name}</h3>
-                    <p className="text-xs mt-1 mb-3 font-medium" style={{ color: titleColor }}>{title}</p>
-                    <p className="text-white/50 text-xs leading-relaxed italic">{quote}</p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-
-          {/* Connector 2→3 */}
-          <div className="flex justify-center my-5">
-            <div className="w-px h-8" style={{ background: 'linear-gradient(to bottom, rgba(201,24,127,0.3), rgba(255,255,255,0.12))' }} />
-          </div>
-
-          {/* ── Tier 3: 3 Ủy viên ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            {[
-              { img: 'nguyen-thi-hanh.png',   name: 'Bà Nguyễn Thị Hạnh',  title: 'Trưởng ban Cố vấn' },
-              { img: 'tieu-yen-trinh.png',    name: 'Bà Tiêu Yến Trinh',   title: 'Phó Chủ tịch Thường trực' },
-              { img: 'luong-ngoc-tien.png',   name: 'Bà Lương Ngọc Tiên',  title: 'Trưởng ban Truyền thông' },
-            ].map(({ img, name, title }, i) => (
-              <FadeUp key={i} delay={0.25 + i * 0.08}>
-                <div className="relative overflow-hidden rounded-xl group transition-transform duration-500 hover:-translate-y-0.5"
-                  style={{ background: 'linear-gradient(160deg, #220816 0%, #30102A 50%, #220816 100%)', border: '1px solid rgba(255,255,255,0.09)' }}>
-                  <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 50%, transparent)' }} />
-                  <div className="relative h-44 overflow-hidden">
-                    <div className="absolute bottom-0 inset-x-0 h-1/2 pointer-events-none"
-                      style={{ background: 'linear-gradient(to top, rgba(34,8,22,0.88) 0%, transparent 100%)' }} />
-                    <img src={`/images/${img}`} alt={name}
-                      className="w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
-                      style={{ mixBlendMode: 'lighten' }} />
-                  </div>
-                  <div className="px-4 pb-4 pt-2 text-center">
-                    <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full inline-block mb-1.5"
-                      style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)', color: 'rgba(255,255,255,0.45)' }}>
-                      Ủy viên
-                    </span>
-                    <h3 className="text-white font-semibold text-sm leading-tight">{name}</h3>
-                    <p className="text-white/40 text-xs mt-0.5">{title}</p>
-                  </div>
+                  <p className="text-white font-semibold text-center mt-4 text-sm">{name}</p>
                 </div>
               </FadeUp>
             ))}
