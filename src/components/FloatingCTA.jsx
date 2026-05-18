@@ -2,9 +2,15 @@ import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
 
 const IconZalo = () => (
-  <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
-    <rect width="32" height="32" rx="8" fill="#0068FF"/>
-    <text x="7" y="22" fontFamily="Arial" fontWeight="bold" fontSize="16" fill="white">Z</text>
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    {/* Zalo icon - stylized Z with curved swoosh */}
+    <defs>
+      <style>{`.zalo-text { font-family: Arial, sans-serif; font-weight: 700; }`}</style>
+    </defs>
+    {/* Left curve */}
+    <path d="M 4 8 Q 2 12 4 18 Q 6 24 12 26 Q 8 24 6 20 Q 4 16 4 12 Z" />
+    {/* Z shape */}
+    <path d="M 10 6 L 20 6 L 10 18 L 20 18 Q 18 20 14 22 L 8 22 L 18 10 L 8 10 Z" />
   </svg>
 )
 
