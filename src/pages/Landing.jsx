@@ -699,7 +699,7 @@ export default function Landing() {
             </p>
           </FadeUp>
 
-          {/* Ban Chỉ Đạo — 3-column grid */}
+          {/* Ban Chỉ Đạo — 3-col desktop / 2-col mobile (Dung solo row 1) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {[
               { img: 'cao-thi-ngoc-dung.png',     role: 'Chỉ đạo Dự án',      name: 'Bà Cao Thị Ngọc Dung',        title: 'Chủ tịch HAWEE',                roleColor: '#F2C200', roleBg: 'rgba(242,194,0,0.15)', roleBorder: 'rgba(242,194,0,0.35)' },
@@ -708,39 +708,43 @@ export default function Landing() {
               { img: 'nguyen-thi-hanh.png',       role: 'Ủy viên',             name: 'Bà Nguyễn Thị Hạnh',          title: 'Trưởng ban Cố vấn',             roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
               { img: 'tieu-yen-trinh.png',        role: 'Ủy viên',             name: 'Bà Tiêu Yến Trinh',           title: 'Phó Chủ tịch Thường trực',      roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
               { img: 'luong-ngoc-tien.png',       role: 'Ủy viên',             name: 'Bà Lương Ngọc Tiên',          title: 'Trưởng ban Truyền thông',       roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
-            ].map(({ img, role, name, title, roleColor, roleBg, roleBorder }, i) => (
-              <FadeUp key={i} delay={0.08 + i * 0.07}>
-                <div className="group relative rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5"
-                  style={{
-                    background: 'linear-gradient(160deg, #1E0718 0%, #2E0F28 55%, #1A0616 100%)',
-                    border: '1.5px solid rgba(201,24,127,0.38)',
-                    boxShadow: '0 2px 16px rgba(201,24,127,0.10)',
-                  }}>
-                  {/* Top glow line */}
-                  <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,24,127,0.7) 35%, rgba(255,180,220,0.9) 50%, rgba(201,24,127,0.7) 65%, transparent 100%)' }} />
-                  {/* Hover glow overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-2xl"
-                    style={{ boxShadow: 'inset 0 0 32px rgba(201,24,127,0.14)', background: 'radial-gradient(ellipse at 50% 0%, rgba(201,24,127,0.10) 0%, transparent 65%)' }} />
-                  {/* Image */}
-                  <div className="relative h-44 overflow-hidden">
-                    <div className="absolute bottom-0 inset-x-0 h-2/3 pointer-events-none z-10"
-                      style={{ background: 'linear-gradient(to top, rgba(30,7,24,0.90) 0%, transparent 100%)' }} />
-                    <img src={`/images/${img}`} alt={name}
-                      className="w-full h-full object-contain object-bottom transition-transform duration-600 group-hover:scale-[1.05]"
-                      style={{ mixBlendMode: 'lighten' }} />
+            ].map(({ img, role, name, title, roleColor, roleBg, roleBorder }, i) => {
+              const soloOnMobile = i === 0;
+              return (
+                <FadeUp key={i} delay={0.08 + i * 0.07}
+                  className={soloOnMobile ? 'col-span-2 sm:col-span-1 flex sm:block justify-center' : ''}>
+                  <div className={`group relative rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5${soloOnMobile ? ' w-[calc(50%-10px)] sm:w-full' : ''}`}
+                    style={{
+                      background: 'linear-gradient(160deg, #1E0718 0%, #2E0F28 55%, #1A0616 100%)',
+                      border: '1.5px solid rgba(201,24,127,0.38)',
+                      boxShadow: '0 2px 16px rgba(201,24,127,0.10)',
+                    }}>
+                    {/* Top glow line */}
+                    <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,24,127,0.7) 35%, rgba(255,180,220,0.9) 50%, rgba(201,24,127,0.7) 65%, transparent 100%)' }} />
+                    {/* Hover glow overlay */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-2xl"
+                      style={{ boxShadow: 'inset 0 0 32px rgba(201,24,127,0.14)', background: 'radial-gradient(ellipse at 50% 0%, rgba(201,24,127,0.10) 0%, transparent 65%)' }} />
+                    {/* Image */}
+                    <div className="relative h-44 overflow-hidden">
+                      <div className="absolute bottom-0 inset-x-0 h-2/3 pointer-events-none z-10"
+                        style={{ background: 'linear-gradient(to top, rgba(30,7,24,0.90) 0%, transparent 100%)' }} />
+                      <img src={`/images/${img}`} alt={name}
+                        className="w-full h-full object-contain object-bottom transition-transform duration-600 group-hover:scale-[1.05]"
+                        style={{ mixBlendMode: 'lighten' }} />
+                    </div>
+                    {/* Text */}
+                    <div className="px-4 pt-2 pb-4 text-center">
+                      <span className="inline-block text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2"
+                        style={{ background: roleBg, border: `1px solid ${roleBorder}`, color: roleColor }}>
+                        {role}
+                      </span>
+                      <p className="text-white font-semibold text-xs leading-snug">{name}</p>
+                      <p className="text-white/45 text-[10px] mt-0.5 leading-tight">{title}</p>
+                    </div>
                   </div>
-                  {/* Text */}
-                  <div className="px-4 pt-2 pb-4 text-center">
-                    <span className="inline-block text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2"
-                      style={{ background: roleBg, border: `1px solid ${roleBorder}`, color: roleColor }}>
-                      {role}
-                    </span>
-                    <p className="text-white font-semibold text-xs leading-snug">{name}</p>
-                    <p className="text-white/45 text-[10px] mt-0.5 leading-tight">{title}</p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              );
+            })}
           </div>
 
         </div>
