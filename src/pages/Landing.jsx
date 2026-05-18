@@ -699,25 +699,45 @@ export default function Landing() {
             </p>
           </FadeUp>
 
-          {/* Ban Chỉ Đạo — Simple 3-column grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Ban Chỉ Đạo — 3-column grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {[
-              { img: 'cao-thi-ngoc-dung.png',   name: 'Cao Thị Ngọc Dung' },
-              { img: 'nguyen-thi-hanh.png',     name: 'Nguyễn Thị Hạnh' },
-              { img: 'huynh-thi-xuan-lien-2.png', name: 'Huỳnh Thị Xuân Liên' },
-              { img: 'tieu-yen-trinh.png',      name: 'Tiêu Yến Trinh' },
-              { img: 'luong-ngoc-tien.png',     name: 'Lương Ngọc Tiên' },
-              { img: 'tran-phuong-ngoc-thao.png', name: 'Trần Phương Ngọc Thảo' },
-            ].map(({ img, name }, i) => (
-              <FadeUp key={i} delay={0.1 + i * 0.05}>
-                <div className="flex flex-col items-center">
-                  <div className="w-full aspect-square overflow-hidden rounded-xl group transition-transform duration-500 hover:-translate-y-1"
-                    style={{ background: 'linear-gradient(160deg, #280A1E 0%, #3C1230 50%, #280A1E 100%)', border: '1px solid rgba(255,255,255,0.12)' }}>
+              { img: 'cao-thi-ngoc-dung.png',     role: 'Chỉ đạo Dự án',      name: 'Bà Cao Thị Ngọc Dung',        title: 'Chủ tịch HAWEE',                roleColor: '#F2C200', roleBg: 'rgba(242,194,0,0.15)', roleBorder: 'rgba(242,194,0,0.35)' },
+              { img: 'huynh-thi-xuan-lien-2.png', role: 'Trưởng Ban Tổ chức',  name: 'Bà Huỳnh Thị Xuân Liên',      title: 'Phó Chủ tịch HAWEE',            roleColor: '#FF7EB0', roleBg: 'rgba(201,24,127,0.15)', roleBorder: 'rgba(201,24,127,0.35)' },
+              { img: 'tran-phuong-ngoc-thao.png', role: 'Phó Ban Tổ chức',     name: 'Bà Trần Phương Ngọc Thảo',    title: 'Ủy viên Ban Thường vụ HAWEE',   roleColor: '#FF7EB0', roleBg: 'rgba(201,24,127,0.12)', roleBorder: 'rgba(201,24,127,0.28)' },
+              { img: 'nguyen-thi-hanh.png',       role: 'Ủy viên',             name: 'Bà Nguyễn Thị Hạnh',          title: 'Trưởng ban Cố vấn',             roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+              { img: 'tieu-yen-trinh.png',        role: 'Ủy viên',             name: 'Bà Tiêu Yến Trinh',           title: 'Phó Chủ tịch Thường trực',      roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+              { img: 'luong-ngoc-tien.png',       role: 'Ủy viên',             name: 'Bà Lương Ngọc Tiên',          title: 'Trưởng ban Truyền thông',       roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+            ].map(({ img, role, name, title, roleColor, roleBg, roleBorder }, i) => (
+              <FadeUp key={i} delay={0.08 + i * 0.07}>
+                <div className="group relative rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5"
+                  style={{
+                    background: 'linear-gradient(160deg, #1E0718 0%, #2E0F28 55%, #1A0616 100%)',
+                    border: '1.5px solid rgba(201,24,127,0.38)',
+                    boxShadow: '0 2px 16px rgba(201,24,127,0.10)',
+                  }}>
+                  {/* Top glow line */}
+                  <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,24,127,0.7) 35%, rgba(255,180,220,0.9) 50%, rgba(201,24,127,0.7) 65%, transparent 100%)' }} />
+                  {/* Hover glow overlay */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-2xl"
+                    style={{ boxShadow: 'inset 0 0 32px rgba(201,24,127,0.14)', background: 'radial-gradient(ellipse at 50% 0%, rgba(201,24,127,0.10) 0%, transparent 65%)' }} />
+                  {/* Image */}
+                  <div className="relative h-44 overflow-hidden">
+                    <div className="absolute bottom-0 inset-x-0 h-2/3 pointer-events-none z-10"
+                      style={{ background: 'linear-gradient(to top, rgba(30,7,24,0.90) 0%, transparent 100%)' }} />
                     <img src={`/images/${img}`} alt={name}
-                      className="w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="w-full h-full object-contain object-bottom transition-transform duration-600 group-hover:scale-[1.05]"
                       style={{ mixBlendMode: 'lighten' }} />
                   </div>
-                  <p className="text-white font-semibold text-center mt-4 text-sm">{name}</p>
+                  {/* Text */}
+                  <div className="px-4 pt-2 pb-4 text-center">
+                    <span className="inline-block text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-2"
+                      style={{ background: roleBg, border: `1px solid ${roleBorder}`, color: roleColor }}>
+                      {role}
+                    </span>
+                    <p className="text-white font-semibold text-xs leading-snug">{name}</p>
+                    <p className="text-white/45 text-[10px] mt-0.5 leading-tight">{title}</p>
+                  </div>
                 </div>
               </FadeUp>
             ))}
