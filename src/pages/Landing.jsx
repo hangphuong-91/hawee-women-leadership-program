@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useMotionValue, animate, useInView } from 'framer-motion'
 import { ArrowRight, Globe, Target, Network, TrendingUp, Layers, Compass, GraduationCap, Users, Shield, User } from 'lucide-react'
 import FadeUp from '../components/FadeUp'
+import FloatingCTA from '../components/FloatingCTA'
 
 /* ─── Animated counter ─── */
 function AnimatedNumber({ value, suffix = '' }) {
@@ -1038,6 +1039,7 @@ export default function Landing() {
         </div>
       </section>
 
+      <FloatingCTA />
     </div>
   )
 }
