@@ -16,16 +16,17 @@ const IconFacebook = () => (
 
 export default function FloatingCTA() {
   const buttons = [
-    { 
-      id: 'zalo', 
-      Icon: IconZalo, 
+    {
+      id: 'zalo',
+      Icon: IconZalo,
       href: 'https://zalo.me/1119532139947409891',
-      bgColor: '#0068FF'
+      bgColor: '#0068FF',
+      logoUrl: '/images/logo-zalo.png'
     },
     {
       id: 'facebook',
       Icon: IconFacebook,
-      href: 'https://www.facebook.com/hawee.hochiminh',
+      href: 'https://www.facebook.com/share/176wH8Jkd8/?mibextid=wwXIfr',
       bgColor: '#1877F2'
     },
     { 
@@ -52,7 +53,11 @@ export default function FloatingCTA() {
           className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all hover:shadow-xl"
           style={{ background: btn.bgColor }}
         >
-          {btn.Icon && <btn.Icon size={22} className="sm:w-6 sm:h-6" />}
+          {btn.logoUrl ? (
+            <img src={btn.logoUrl} alt={btn.id} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+          ) : (
+            btn.Icon && <btn.Icon size={22} className="sm:w-6 sm:h-6" />
+          )}
         </motion.a>
       ))}
     </div>
