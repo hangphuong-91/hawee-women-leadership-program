@@ -232,7 +232,7 @@ export default function Landing() {
               </span>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight">
                 HAWEE WOMEN<br />
                 <span className="gradient-text-gold">LEADERSHIP PROGRAM</span>
               </h1>
@@ -244,7 +244,7 @@ export default function Landing() {
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }}
               className="md:static md:mt-7 absolute left-0 right-0 z-10"
-              style={{ top: '57%' }}>
+              style={{ top: '70%' }}>
               <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-center md:items-start scale-95 origin-bottom md:origin-bottom-left md:scale-100">
                 <a href="#dang-ky" className="arrow-light-trail btn-gold cta-pulse text-sm font-semibold inline-flex items-center justify-center gap-2 py-3.5 px-8">
                   Nộp hồ sơ ứng tuyển <ArrowRight size={15} />
