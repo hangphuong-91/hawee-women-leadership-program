@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, Globe } from 'lucide-react'
+import { Phone, MapPin, Globe } from 'lucide-react'
 
 const IconFacebook = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,9 +46,13 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Mail size={13} className="text-white/35 flex-shrink-0" />
-                  <a href="mailto:hawee.hochiminh@gmail.com" className="text-white/65 hover:text-white text-sm transition-colors break-all">
-                    hawee.hochiminh@gmail.com
+                  <svg width="14" height="14" viewBox="0 0 32 32" fill="none" className="flex-shrink-0 opacity-60">
+                    <rect width="32" height="32" rx="8" fill="#0068FF"/>
+                    <text x="7" y="22" fontFamily="Arial" fontWeight="bold" fontSize="16" fill="white">Z</text>
+                  </svg>
+                  <a href="https://zalo.me/haweehochiminh" target="_blank" rel="noopener noreferrer"
+                    className="text-[#4FC3F7] hover:text-white text-sm font-semibold transition-colors">
+                    Chat ZALO ngay!
                   </a>
                 </li>
                 <li className="flex items-start gap-2.5">

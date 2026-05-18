@@ -345,6 +345,17 @@ body {
 }
 
 /* ========================
+   CTA GOLD PULSE
+======================== */
+@keyframes ctaGlowPulse {
+  0%, 100% { box-shadow: 0 2px 14px rgba(242,194,0,0.35), 0 0 0 0 rgba(242,194,0,0.50); }
+  50%       { box-shadow: 0 4px 28px rgba(242,194,0,0.60), 0 0 0 7px rgba(242,194,0,0.0); }
+}
+.cta-pulse {
+  animation: ctaGlowPulse 2.2s ease-in-out infinite;
+}
+
+/* ========================
    ARROW LIGHT TRAIL
 ======================== */
 .arrow-light-trail {

@@ -246,7 +246,7 @@ export default function Landing() {
               className="md:static md:mt-7 absolute left-0 right-0 z-10"
               style={{ top: '57%' }}>
               <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-center md:items-start scale-95 origin-bottom md:origin-bottom-left md:scale-100">
-                <a href="#dang-ky" className="arrow-light-trail btn-gold text-sm font-semibold inline-flex items-center justify-center gap-2 py-3 px-7">
+                <a href="#dang-ky" className="arrow-light-trail btn-gold cta-pulse text-sm font-semibold inline-flex items-center justify-center gap-2 py-3.5 px-8">
                   Nộp hồ sơ ứng tuyển <ArrowRight size={15} />
                 </a>
                 <a href="#chuong-trinh" className="arrow-light-trail btn-outline-white text-sm font-semibold inline-flex items-center justify-center py-3 px-7">
@@ -389,7 +389,7 @@ export default function Landing() {
             <div className="mt-14 rounded-3xl overflow-hidden"
               style={{ background: 'linear-gradient(135deg, #FFF0F6 0%, #FFF5EC 60%, #FFF8F0 100%)', border: '1.5px solid #F5D5E5' }}>
               <div className="p-8 md:p-10">
-                <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] text-center mb-3">Dành riêng cho hội viên HAWEE</p>
+                <p className="text-primary text-base md:text-lg font-bold uppercase tracking-[0.15em] text-center mb-3">Dành riêng cho hội viên HAWEE</p>
                 <h3 className="text-2xl md:text-3xl font-semibold text-[#1A0F1E] text-center mb-10 leading-snug">
                   Tham Gia Hành Trình Này —<br className="hidden md:block" /> Bạn Nhận Được Gì?
                 </h3>
@@ -897,9 +897,9 @@ export default function Landing() {
               {/* Học phí breakdown */}
               <div className="rounded-xl p-4 mb-3" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
                 <div className="flex items-center justify-between mb-3">
-                  <p className="text-white text-xs uppercase tracking-[0.2em] font-bold">Học phí</p>
-                  <span className="font-bold text-white text-base"
-                    style={{ background: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.38)', borderRadius: '8px', padding: '2px 10px', display: 'inline-block', lineHeight: '1.6' }}>
+                  <p className="text-white text-sm uppercase tracking-[0.2em] font-bold">Học phí</p>
+                  <span className="font-bold text-2xl"
+                    style={{ background: 'linear-gradient(135deg, #F2C200 0%, #FFEC7A 50%, #E8B800 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     25.000.000 ₫
                   </span>
                 </div>
@@ -926,7 +926,7 @@ export default function Landing() {
                     <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="rgba(255,255,255,0.65)"/>
                   </svg>
                   <div>
-                    <p className="text-white text-xs font-semibold mb-1">Cam kết tham gia trọn vẹn</p>
+                    <p className="text-white text-sm font-bold mb-1">Cam kết tham gia trọn vẹn</p>
                     <p className="text-white/60 text-xs leading-relaxed">
                       Học phí <span className="text-white/85 font-semibold">không hoàn lại</span> nếu học viên không thể tham dự một phần nội dung. HAWEE yêu cầu cam kết hiện diện trọn vẹn trong suốt quá trình học.
                     </p>
