@@ -50,15 +50,15 @@ export default function Footer() {
                     <rect width="32" height="32" rx="8" fill="#0068FF"/>
                     <text x="7" y="22" fontFamily="Arial" fontWeight="bold" fontSize="16" fill="white">Z</text>
                   </svg>
-                  <a href="https://zalo.me/haweehochiminh" target="_blank" rel="noopener noreferrer"
-                    className="text-[#4FC3F7] hover:text-white text-sm font-semibold transition-colors">
+                  <a href="https://zalo.me/1119532139947409891" target="_blank" rel="noopener noreferrer"
+                    className="text-white/65 hover:text-white text-sm transition-colors">
                     Chat ZALO ngay!
                   </a>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <MapPin size={13} className="text-white/35 flex-shrink-0 mt-0.5" />
                   <span className="text-white/55 text-sm leading-relaxed">
-                    Hội Doanh Nhân Nữ TP.HCM (HAWEE)<br />TP. Hồ Chí Minh
+                    Hội Doanh Nhân Nữ TP.HCM (HAWEE)<br />170E Phan Đăng Lưu, Phường Đức Nhuận,<br />TP. Hồ Chí Minh
                   </span>
                 </li>
               </ul>
