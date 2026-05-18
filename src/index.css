@@ -95,9 +95,9 @@ body {
 .hero-leadership {
   position: relative;
   background-image: url('/images/kv-hang-chon-4.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center center;
   min-height: 100vh;
 }
 
