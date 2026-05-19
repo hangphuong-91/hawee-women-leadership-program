@@ -729,7 +729,7 @@ export default function Landing() {
                       <img src={person.img} alt={person.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <p className="text-white font-semibold text-sm leading-snug mb-1">{person.name}</p>
-                    <p className="text-[#E8C060] text-[11px] font-medium leading-snug mb-1">{person.title}</p>
+                    <p className="text-[#E8C060] text-[10px] md:text-[11px] font-medium leading-snug mb-1 whitespace-nowrap">{person.title}</p>
                     <p className="text-white/45 text-[10px] leading-snug">{person.org}</p>
                   </div>
                 ) : (
