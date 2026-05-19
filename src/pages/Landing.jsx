@@ -634,9 +634,9 @@ export default function Landing() {
                         <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: gradient }}>
                           <Icon size={14} color="white" strokeWidth={1.8} />
                         </div>
-                        <p className="text-[#1A0F1E] font-semibold text-xs leading-snug">{title}</p>
+                        <p className="text-[#1A0F1E] font-semibold text-sm sm:text-xs leading-snug">{title}</p>
                       </div>
-                      <p className="text-[#9B7080] text-xs leading-snug pl-[42px]">{sub}</p>
+                      <p className="text-[#9B7080] text-[13px] sm:text-xs leading-snug pl-[42px]">{sub}</p>
                     </div>
                   </FadeUp>
                 ))}
@@ -659,7 +659,7 @@ export default function Landing() {
                         style={{ background: 'rgba(255,255,255,0.20)', border: '1px solid rgba(255,255,255,0.35)' }}>
                         <Shield size={14} color="white" strokeWidth={2} />
                       </div>
-                      <p className="text-white font-bold text-xs leading-snug whitespace-nowrap">Chỉ 20 suất dành riêng hội viên HAWEE</p>
+                      <p className="text-white font-bold text-sm sm:text-xs leading-snug sm:whitespace-nowrap">Chỉ 20 suất dành riêng hội viên HAWEE</p>
                     </div>
                     {/* Row 2: badge + CTA */}
                     <div className="relative flex items-center gap-2 pl-[42px]">
