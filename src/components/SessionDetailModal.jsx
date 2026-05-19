@@ -27,7 +27,7 @@ const sessionData = {
       afternoon: [
         { time: '13:15', activity: 'Hoạt động phá băng' },
         { time: '13:30', activity: 'Tái tạo năng lượng' },
-        { time: '13:45', activity: 'Hội thảo: Từ Ứng phó sang Chuyển hóa' },
+        { time: '13:45', activity: 'Từ Ứng phó sang Chuyển hóa' },
         { time: '15:30', activity: 'Nghỉ giải lao' },
         { time: '15:45', activity: 'Khoảnh khắc tạo nên tôi' },
         { time: '16:30', activity: 'Suy ngẫm sâu sắc – Tôi với vai trò Lãnh đạo' },
