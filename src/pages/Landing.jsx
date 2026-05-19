@@ -1126,18 +1126,6 @@ export default function Landing() {
         onClose={() => setSessionModalOpen(false)}
       />
 
-      {/* Zalo Button */}
-      <a href="https://zalo.me/0383575555" target="_blank" rel="noopener noreferrer"
-        className="fixed right-6 bottom-24 z-40 hover:scale-110 transition-transform duration-300 group"
-        title="Liên hệ qua Zalo">
-        <div className="relative">
-          <img src="/images/logo-zalo.png" alt="Zalo" className="w-14 h-14 md:w-16 md:h-16" />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            Chat
-          </span>
-        </div>
-      </a>
-
       <FloatingCTA />
     </div>
   )
