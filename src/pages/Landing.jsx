@@ -67,13 +67,13 @@ const sessions = [
     num: '01', phase: 0,
     title: 'Lãnh Đạo Bản Thân',
     sub: '',
-    desc: 'Xác định la bàn lãnh đạo cá nhân, phân tích SWOT bản thân và lập kế hoạch hành động 60 ngày. Mọi ảnh hưởng bền vững đều bắt đầu từ nội lực bên trong.',
+    desc: 'Xác định la bàn lãnh đạo, nền tảng hiểu bản thân, phát huy năng lượng và nội lực người lãnh đạo. Mọi ảnh hưởng bên ngoài đều bắt đầu từ sức mạnh khai phóng bên trong.',
   },
   {
     num: '02', phase: 0,
     title: 'Lãnh Đạo Thấu Cảm',
     sub: '',
-    desc: 'Xây dựng niềm tin và môi trường tâm lý an toàn, lập bản đồ thấu cảm (Empathy Mapping) qua Team Building tương tác và case study thực tế khối Công–Tư.',
+    desc: 'Xây dựng niềm tin và môi trường tâm lý an toàn, phát huy năng lực thấu cảm qua team building và tương tác case study thực tế khối công-tư.',
   },
   {
     num: '03', phase: 0,
@@ -85,13 +85,13 @@ const sessions = [
     num: '04', phase: 1,
     title: 'Giao Tiếp Hiệu Quả',
     sub: '',
-    desc: 'Làm chủ khung thông điệp (Message Framing), kỹ năng kể chuyện (Storytelling) và phong thái hiện diện trước stakeholders. Luyện tập qua 3-minute leadership pitch và video feedback.',
+    desc: 'Làm chủ khung thông điệp, kỹ năng kể chuyện và định hình phong thái hiện diện, phát huy giao tiếp hiệu quả trong các case study khó thực tế khối công-tư.',
   },
   {
     num: '05', phase: 1,
     title: 'Văn Hóa Tổ Chức',
     sub: '',
-    desc: 'Thiết kế văn hóa đổi mới sáng tạo, rèn luyện bộ kỹ năng Mentoring & Coaching (GROW framework), tư duy ứng dụng công nghệ qua Design Thinking mini-sprint.',
+    desc: 'Nuôi dưỡng văn hoá đổi mới sáng tạo, rèn luyện bộ kỹ năng Mentoring & Coaching, tư duy ứng dụng công nghệ qua qui trình Tư duy thiết kế rút gọn.',
   },
   {
     num: '06', phase: 2,
@@ -307,7 +307,7 @@ export default function Landing() {
               <span className="gradient-text">Đây Là Hành Trình Chuyển Hóa.</span>
             </h2>
             <p className="text-[#5C3545] text-center max-w-2xl mx-auto mb-14 leading-relaxed text-sm">
-              Được thiết kế dành riêng cho nữ lãnh đạo cấp cao — HAWEE Women Leadership Program 2026 là hành trình chuyển dịch từ quản lý xuất sắc sang kiến tạo ảnh hưởng chiến lược sâu sắc. Nơi tiếng nói của doanh nhân và thẩm quyền của chính quyền cùng trao cho một thế hệ lãnh đạo mới.
+              Được thiết kế dành riêng cho nữ lãnh đạo cấp cao — HAWEE Women Leadership Program 2026 là hành trình chuyển dịch từ quản lý hiệu quả đến lãnh đạo tạo tác động. Nơi tiếng nói của doanh nhân và thẩm quyền của chính quyền cùng trao cho một thế hệ lãnh đạo mới.
             </p>
           </FadeUp>
 
