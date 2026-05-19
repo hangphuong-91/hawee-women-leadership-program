@@ -643,28 +643,36 @@ export default function Landing() {
 
                 {/* CTA card — same grid size, highlighted */}
                 <FadeUp delay={0.82} className="h-full">
-                  <a href="#dang-ky" className="block h-full rounded-2xl p-5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                  <a href="#dang-ky" className="block h-full rounded-2xl p-5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1"
                     style={{
-                      background: 'linear-gradient(135deg, #7A1040 0%, #991B55 35%, #CB5184 70%, #DC76B0 100%)',
-                      boxShadow: '0 0 0 2px rgba(203,81,132,0.50), 0 8px 32px rgba(153,27,85,0.50)',
+                      background: 'linear-gradient(140deg, #55002A 0%, #8C0040 30%, #C9187F 65%, #A0104F 100%)',
+                      boxShadow: '0 0 0 2.5px #C9187F, 0 10px 40px rgba(153,27,85,0.65)',
                       animation: 'ctaDarkPulse 2.5s ease-in-out infinite',
                     }}>
-                    {/* Sheen overlay */}
-                    <div className="absolute inset-0 pointer-events-none"
-                      style={{ background: 'radial-gradient(ellipse at 75% 20%, rgba(255,255,255,0.18) 0%, transparent 55%)' }} />
-                    {/* Bottom light */}
-                    <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none"
-                      style={{ background: 'linear-gradient(to top, rgba(153,27,85,0.35), transparent)' }} />
+
+                    {/* Sweep light — chạy ngang liên tục */}
+                    <div className="absolute inset-0 pointer-events-none">
+                      <div style={{
+                        position: 'absolute', top: 0, left: 0,
+                        width: '50%', height: '100%',
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)',
+                        animation: 'lightSweep 2.6s ease-in-out infinite',
+                      }} />
+                    </div>
+
+                    {/* Radial glow top-right */}
+                    <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full pointer-events-none"
+                      style={{ background: 'radial-gradient(circle, rgba(255,180,210,0.30) 0%, transparent 65%)' }} />
 
                     <div className="relative h-full flex flex-col">
                       {/* Top row: icon + badge */}
                       <div className="flex items-start justify-between mb-3">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{ background: 'rgba(255,255,255,0.20)', border: '1px solid rgba(255,255,255,0.30)' }}>
+                          style={{ background: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.35)', backdropFilter: 'blur(4px)' }}>
                           <Shield size={16} color="white" strokeWidth={2} />
                         </div>
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.20)', color: 'white', border: '1px solid rgba(255,255,255,0.35)' }}>
+                          style={{ background: 'rgba(255,255,255,0.18)', color: 'white', border: '1px solid rgba(255,255,255,0.40)' }}>
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                           Giới hạn
                         </span>
@@ -674,13 +682,14 @@ export default function Landing() {
                       <p className="text-white font-bold text-sm leading-snug mb-1.5">
                         Chỉ 20 Suất<br />Dành Riêng Hội Viên HAWEE
                       </p>
-                      <p className="text-white/80 text-xs leading-snug flex-1">
-                        Số lượng có hạn, tuyển chọn trực tiếp. Một khi cánh cửa đóng lại, sẽ không mở lại đến 2028.
+                      <p className="text-white/85 text-xs leading-snug flex-1">
+                        Số lượng có hạn, tuyển chọn trực tiếp. Đừng bỏ lỡ!
                       </p>
 
-                      {/* CTA bottom */}
-                      <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:gap-2.5 transition-all duration-300">
-                        Nộp hồ sơ ngay <ArrowRight size={12} />
+                      {/* CTA bottom — arrow chạy khi hover */}
+                      <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-white">
+                        <span>Nộp hồ sơ ngay</span>
+                        <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1.5" />
                       </div>
                     </div>
                   </a>
