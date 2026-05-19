@@ -620,76 +620,58 @@ export default function Landing() {
           <FadeUp delay={0.5}>
             <div className="mt-12 max-w-4xl mx-auto">
               <p className="text-[#E8C96A] text-sm uppercase tracking-[0.2em] font-bold text-center mb-6">Đặc quyền học viên nhận về</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                style={{ gridAutoRows: '1fr' }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {[
-                  { icon: Layers,       gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn',   sub: 'OKR · GROW Coaching · Design Thinking mini-sprint · Stakeholder Map' },
-                  { icon: Monitor,      gradient: 'linear-gradient(135deg, #1A2F5A, #603079)', title: 'Platform E-Learning',     sub: 'Kết nối học viên & tài nguyên xuyên suốt 12 tháng hành trình' },
-                  { icon: GraduationCap,gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức HAWEE × UBND TP.HCM · Lễ tốt nghiệp 5/2027' },
-                  { icon: Network,      gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư',      sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
-                  { icon: Users,        gradient: 'linear-gradient(135deg, #6A2F62, #CB5184)', title: 'Mạng Lưới Alumni',        sub: 'Cộng đồng lãnh đạo nữ — kết nối và đồng hành sau chương trình' },
+                  { icon: Layers,        gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn',  sub: 'OKR · GROW Coaching · Design Thinking · Stakeholder Map' },
+                  { icon: Monitor,       gradient: 'linear-gradient(135deg, #1A2F5A, #603079)', title: 'Platform E-Learning',    sub: 'Kết nối học viên & tài nguyên xuyên suốt hành trình 12 tháng' },
+                  { icon: GraduationCap, gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận HAWEE × UBND TP.HCM · Lễ tốt nghiệp 5/2027' },
+                  { icon: Network,       gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư',     sub: 'Kết nối lãnh đạo nhà nước & doanh nhân liên ngành' },
+                  { icon: Users,         gradient: 'linear-gradient(135deg, #6A2F62, #CB5184)', title: 'Mạng Lưới Alumni',       sub: 'Cộng đồng lãnh đạo nữ — kết nối sau chương trình' },
                 ].map(({ icon: Icon, gradient, title, sub }, i) => (
                   <FadeUp key={i} delay={0.52 + i * 0.06} className="h-full">
-                    <div className={`${cardHover} p-5 h-full flex flex-col lg:min-h-[150px]`}>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mb-3" style={{ background: gradient }}>
-                        <Icon size={16} color="white" strokeWidth={1.8} />
+                    <div className={`${cardHover} px-4 py-3.5 h-full flex flex-col gap-1.5`}>
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: gradient }}>
+                          <Icon size={14} color="white" strokeWidth={1.8} />
+                        </div>
+                        <p className="text-[#1A0F1E] font-semibold text-xs leading-snug">{title}</p>
                       </div>
-                      <p className="text-[#1A0F1E] font-semibold text-sm mb-1">{title}</p>
-                      <p className="text-[#9B7080] text-xs leading-relaxed">{sub}</p>
+                      <p className="text-[#9B7080] text-xs leading-snug pl-[42px]">{sub}</p>
                     </div>
                   </FadeUp>
                 ))}
 
-                {/* CTA card — same grid size, highlighted */}
+                {/* CTA card */}
                 <FadeUp delay={0.82} className="h-full">
-                  <a href="#dang-ky" className="block h-full rounded-2xl p-5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1 lg:min-h-[150px]"
+                  <a href="#dang-ky" className="block h-full rounded-2xl px-4 py-3.5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-0.5 flex flex-col gap-1.5"
                     style={{
                       background: 'linear-gradient(140deg, #55002A 0%, #8C0040 30%, #C9187F 65%, #A0104F 100%)',
-                      boxShadow: '0 0 0 2.5px #C9187F, 0 10px 40px rgba(153,27,85,0.65)',
+                      boxShadow: '0 0 0 2px #C9187F, 0 8px 32px rgba(153,27,85,0.60)',
                       animation: 'ctaDarkPulse 2.5s ease-in-out infinite',
                     }}>
-
-                    {/* Sweep light — chạy ngang liên tục */}
+                    {/* Sweep */}
                     <div className="absolute inset-0 pointer-events-none">
-                      <div style={{
-                        position: 'absolute', top: 0, left: 0,
-                        width: '50%', height: '100%',
-                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)',
-                        animation: 'lightSweep 2.6s ease-in-out infinite',
-                      }} />
+                      <div style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent)', animation: 'lightSweep 2.6s ease-in-out infinite' }} />
                     </div>
-
-                    {/* Radial glow top-right */}
-                    <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full pointer-events-none"
-                      style={{ background: 'radial-gradient(circle, rgba(255,180,210,0.30) 0%, transparent 65%)' }} />
-
-                    <div className="relative h-full flex flex-col">
-                      {/* Top row: icon + badge */}
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{ background: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.35)', backdropFilter: 'blur(4px)' }}>
-                          <Shield size={16} color="white" strokeWidth={2} />
-                        </div>
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.18)', color: 'white', border: '1px solid rgba(255,255,255,0.40)' }}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                          Giới hạn
-                        </span>
+                    {/* Row 1: icon + title */}
+                    <div className="relative flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: 'rgba(255,255,255,0.20)', border: '1px solid rgba(255,255,255,0.35)' }}>
+                        <Shield size={14} color="white" strokeWidth={2} />
                       </div>
-
-                      {/* Content */}
-                      <p className="text-white font-bold text-sm leading-snug mb-1.5">
-                        Chỉ 20 Suất<br />Dành Riêng Hội Viên HAWEE
-                      </p>
-                      <p className="text-white/85 text-xs leading-snug flex-1">
-                        Số lượng có hạn, tuyển chọn trực tiếp. Đừng bỏ lỡ!
-                      </p>
-
-                      {/* CTA bottom — arrow chạy khi hover */}
-                      <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-white">
-                        <span>Nộp hồ sơ ngay</span>
-                        <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1.5" />
-                      </div>
+                      <p className="text-white font-bold text-xs leading-snug whitespace-nowrap">Chỉ 20 suất dành riêng hội viên HAWEE</p>
+                    </div>
+                    {/* Row 2: badge + CTA */}
+                    <div className="relative flex items-center gap-2 pl-[42px]">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full flex-shrink-0"
+                        style={{ background: 'rgba(255,255,255,0.20)', color: 'white', border: '1px solid rgba(255,255,255,0.35)' }}>
+                        <span className="w-1 h-1 rounded-full bg-white animate-pulse" />
+                        Giới hạn
+                      </span>
+                      <span className="text-white/90 text-xs font-bold flex items-center gap-1">
+                        Nộp hồ sơ ngay
+                        <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
                     </div>
                   </a>
                 </FadeUp>
