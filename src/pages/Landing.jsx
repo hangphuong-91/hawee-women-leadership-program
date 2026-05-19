@@ -641,6 +641,56 @@ export default function Landing() {
                   </FadeUp>
                 ))}
               </div>
+
+              {/* Highlighted CTA box */}
+              <FadeUp delay={0.7}>
+                <div className="mt-6 relative rounded-2xl p-6 overflow-hidden"
+                  style={{
+                    background: 'rgba(203,81,132,0.07)',
+                    border: '1.5px solid rgba(203,81,132,0.55)',
+                    boxShadow: '0 0 0 4px rgba(203,81,132,0.08), 0 8px 32px rgba(203,81,132,0.15)',
+                  }}>
+                  {/* Glow top-left */}
+                  <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full pointer-events-none"
+                    style={{ background: 'radial-gradient(circle, rgba(203,81,132,0.18) 0%, transparent 70%)' }} />
+
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 relative">
+                    {/* Icon */}
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'linear-gradient(135deg, #CB5184, #991B55)', boxShadow: '0 4px 16px rgba(153,27,85,0.35)' }}>
+                      <Shield size={20} color="white" strokeWidth={2} />
+                    </div>
+
+                    {/* Text */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <p className="text-[#1A0F1E] font-bold text-base leading-snug">
+                          Chỉ 20 suất — Ưu tiên dành riêng cho Hội viên HAWEE
+                        </p>
+                        <span className="flex-shrink-0 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full"
+                          style={{ background: 'rgba(203,81,132,0.12)', color: '#CB5184', border: '1px solid rgba(203,81,132,0.35)' }}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#CB5184] animate-pulse" />
+                          Giới hạn
+                        </span>
+                      </div>
+                      <p className="text-[#5C3545] text-sm leading-relaxed">
+                        Chương trình tuyển chọn kỹ lưỡng — số lượng có hạn, cơ hội kết nối Công–Tư chưa từng có tại TP.HCM. Một khi cánh cửa đóng lại, sẽ không mở lại đến 2028.
+                      </p>
+                    </div>
+
+                    {/* CTA */}
+                    <a href="#dang-ky"
+                      className="flex-shrink-0 inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+                      style={{
+                        background: 'linear-gradient(135deg, #CB5184, #991B55)',
+                        color: 'white',
+                        boxShadow: '0 4px 16px rgba(153,27,85,0.35)',
+                      }}>
+                      Nộp hồ sơ ngay <ArrowRight size={14} />
+                    </a>
+                  </div>
+                </div>
+              </FadeUp>
             </div>
           </FadeUp>
         </div>
