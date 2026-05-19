@@ -656,35 +656,63 @@ export default function Landing() {
             <p className="text-primary text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">Đội ngũ dẫn dắt</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Giảng Viên Chương Trình</h2>
             <p className="text-white/50 text-center text-sm max-w-xl mx-auto mb-5">
-              HAWEE đang hoàn thiện đội ngũ — những chuyên gia lãnh đạo thực chiến từ chính quyền TP.HCM, doanh nhân HAWEE và chuyên gia quốc tế.
+              Đội ngũ chuyên gia lãnh đạo thực chiến — đang tiếp tục được hoàn thiện.
             </p>
             <div className="flex items-center justify-center gap-3 mb-12">
               <div className="h-px w-12 bg-white/15" />
               <span className="flex items-center gap-1.5 text-[#C9940A] text-xs font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C9940A] animate-pulse" />
-                Sắp công bố — Tháng 6/2026
+                Tiếp tục cập nhật — Tháng 6/2026
               </span>
               <div className="h-px w-12 bg-white/15" />
             </div>
           </FadeUp>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[0,1,2,3].map(i => (
+            {[
+              {
+                img: '/images/luong-ngoc-tien.png',
+                name: 'Lương Ngọc Tiên',
+                title: 'Nhà sáng lập & Điều hành',
+                org: 'Công ty TNHH Tư vấn & Đào tạo One Life Connection',
+              },
+              {
+                img: '/images/nguyen-thi-thanh-huong.png',
+                name: 'Nguyễn Thị Thanh Hương',
+                title: 'Giám đốc Điều hành',
+                org: 'Công ty TNHH Lãnh Đạo Khai Phóng (LLO)',
+              },
+              null,
+              null,
+            ].map((person, i) => (
               <FadeUp key={i} delay={i * 0.08} className="h-full">
-                <div className="rounded-2xl p-5 h-full flex flex-col items-center text-center"
-                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)' }}>
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 mx-auto"
-                    style={{ background: 'rgba(255,255,255,0.07)', border: '2px dashed rgba(255,255,255,0.18)' }}>
-                    <User size={30} color="rgba(255,255,255,0.22)" strokeWidth={1.5} />
+                {person ? (
+                  <div className="rounded-2xl p-5 h-full flex flex-col items-center text-center"
+                    style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.14)' }}>
+                    <div className="w-20 h-20 rounded-full mb-4 mx-auto overflow-hidden flex-shrink-0"
+                      style={{ border: '2px solid rgba(201,168,76,0.50)', boxShadow: '0 0 0 3px rgba(201,168,76,0.15)' }}>
+                      <img src={person.img} alt={person.name} className="w-full h-full object-cover object-top" />
+                    </div>
+                    <p className="text-white font-semibold text-sm leading-snug mb-1">{person.name}</p>
+                    <p className="text-[#E8C060] text-[11px] font-medium leading-snug mb-1">{person.title}</p>
+                    <p className="text-white/45 text-[10px] leading-snug">{person.org}</p>
                   </div>
-                  <div className="w-16 h-2 rounded-full mb-2" style={{ background: 'rgba(255,255,255,0.10)' }} />
-                  <div className="w-24 h-1.5 rounded-full mb-4" style={{ background: 'rgba(255,255,255,0.07)' }} />
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(201,168,76,0.15)', color: '#E8C060', border: '1px solid rgba(201,168,76,0.35)' }}>
-                    <span className="w-1 h-1 rounded-full bg-[#C9940A] animate-pulse" />
-                    Đang cập nhật
-                  </span>
-                </div>
+                ) : (
+                  <div className="rounded-2xl p-5 h-full flex flex-col items-center text-center"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px dashed rgba(255,255,255,0.12)' }}>
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 mx-auto"
+                      style={{ background: 'rgba(255,255,255,0.06)', border: '2px dashed rgba(255,255,255,0.15)' }}>
+                      <User size={28} color="rgba(255,255,255,0.18)" strokeWidth={1.5} />
+                    </div>
+                    <div className="w-16 h-2 rounded-full mb-2" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                    <div className="w-24 h-1.5 rounded-full mb-4" style={{ background: 'rgba(255,255,255,0.05)' }} />
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                      style={{ background: 'rgba(201,168,76,0.12)', color: '#E8C060', border: '1px solid rgba(201,168,76,0.28)' }}>
+                      <span className="w-1 h-1 rounded-full bg-[#C9940A] animate-pulse" />
+                      Sắp công bố
+                    </span>
+                  </div>
+                )}
               </FadeUp>
             ))}
           </div>
