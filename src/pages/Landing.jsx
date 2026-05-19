@@ -846,7 +846,7 @@ export default function Landing() {
         <div className="container-custom relative">
           <FadeUp>
             <p className="text-[#E8C96A] text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">Dẫn dắt hành trình</p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Hành Trình Từ Bên Trong Ra Bên Ngoài</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Đào Tạo Và Nâng Tầm Nữ Lãnh Đạo</h2>
             <p className="text-white/70 text-center text-sm max-w-2xl mx-auto mb-12">
               Đội ngũ lãnh đạo tâm huyết — kiến tạo tầm nhìn từ nội tâm, điều phối sức mạnh nội lực, và hiện thực hóa ảnh hưởng bền vững ra cộng đồng.
             </p>
