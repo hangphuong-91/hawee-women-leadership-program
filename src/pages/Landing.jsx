@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useMotionValue, animate, useInView } from 'framer-motion'
-import { ArrowRight, Globe, Target, Network, TrendingUp, Layers, Compass, GraduationCap, Users, Shield, User } from 'lucide-react'
+import { ArrowRight, Globe, Target, Network, TrendingUp, Layers, Compass, GraduationCap, Users, Shield, User, Monitor } from 'lucide-react'
 import FadeUp from '../components/FadeUp'
 import FloatingCTA from '../components/FloatingCTA'
 import SessionDetailModal from '../components/SessionDetailModal'
@@ -616,34 +616,25 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Outputs — 6-card grid */}
+          {/* Outputs — 5-card grid */}
           <FadeUp delay={0.5}>
             <div className="mt-12 max-w-4xl mx-auto">
               <p className="text-[#E8C96A] text-sm uppercase tracking-[0.2em] font-bold text-center mb-6">Đặc quyền học viên nhận về</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { icon: TrendingUp, gradient: 'linear-gradient(135deg, #CB5184, #DC76B0)', title: 'Đánh Giá Năng Lực', sub: 'Trước & Sau chương trình — lộ trình phát triển lãnh đạo cá nhân hóa' },
-                  { icon: Layers, gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn', sub: 'OKR · GROW Coaching · Stakeholder Map · Empathy Mapping' },
-                  { icon: Users, gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư', sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
-                  { icon: Compass, gradient: 'linear-gradient(135deg, #C9187F, #8C0038)', title: 'Phong Thái & Hình Ảnh Lãnh Đạo', sub: 'Tham gia cùng chương trình Hình ảnh Nữ Doanh Nhân & Nhân hiệu của HAWEE', isNew: true },
+                  { icon: Layers, gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn', sub: 'OKR, GROW Coaching, Design Thinking mini-sprint, v.v' },
+                  { icon: Monitor, gradient: 'linear-gradient(135deg, #1A2F5A, #603079)', title: 'Platform E-Learning', sub: 'Xuyên suốt hành trình, nâng cao trải nghiệm học và kết nối mạng lưới học viên' },
                   { icon: GraduationCap, gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức từ HAWEE × UBND TP.HCM · Lễ tốt nghiệp tháng 5/2027' },
-                  { icon: Network, gradient: 'linear-gradient(135deg, #1A2F5A, #4A1870)', title: 'Alumni Network Trọn Đời', sub: 'Cộng đồng lãnh đạo nữ — kết nối và đồng hành sau chương trình' },
-                ].map(({ icon: Icon, gradient, title, sub, isNew }, i) => (
+                  { icon: Network, gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư', sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
+                  { icon: Users, gradient: 'linear-gradient(135deg, #6A2F62, #CB5184)', title: 'Mạng Lưới Alumni', sub: 'Cộng đồng lãnh đạo nữ kết nối và đồng hành sau chương trình' },
+                ].map(({ icon: Icon, gradient, title, sub }, i) => (
                   <FadeUp key={i} delay={0.52 + i * 0.06} className="h-full">
                     <div className={`${cardHover} p-5 h-full flex items-start gap-4`}>
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: gradient }}>
                         <Icon size={16} color="white" strokeWidth={1.8} />
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <p className="text-[#1A0F1E] font-semibold text-sm">{title}</p>
-                          {isNew && (
-                            <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
-                              style={{ background: 'rgba(203,81,132,0.10)', color: '#C9187F', border: '1px solid rgba(201,24,127,0.22)' }}>
-                              Mới
-                            </span>
-                          )}
-                        </div>
+                        <p className="text-[#1A0F1E] font-semibold text-sm mb-0.5">{title}</p>
                         <p className="text-[#9B7080] text-xs leading-snug">{sub}</p>
                       </div>
                     </div>
