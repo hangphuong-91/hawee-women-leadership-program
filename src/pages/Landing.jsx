@@ -843,9 +843,9 @@ export default function Landing() {
               { img: 'cao-thi-ngoc-dung.png',     role: 'Chỉ đạo Dự án',      name: 'Bà Cao Thị Ngọc Dung',        title: 'Chủ tịch HAWEE',                roleColor: '#D8A84F', roleBg: 'rgba(242,194,0,0.15)', roleBorder: 'rgba(242,194,0,0.35)' },
               { img: 'huynh-thi-xuan-lien-2.png', role: 'Trưởng Ban Tổ chức',  name: 'Bà Huỳnh Thị Xuân Liên',      title: 'Phó Chủ tịch HAWEE',            roleColor: '#FF7EB0', roleBg: 'rgba(203,81,132,0.15)', roleBorder: 'rgba(203,81,132,0.35)' },
               { img: 'tran-phuong-ngoc-thao.png', role: 'Phó Ban Tổ chức',     name: 'Bà Trần Phương Ngọc Thảo',    title: 'Ủy viên Ban Thường vụ HAWEE',   roleColor: '#FF7EB0', roleBg: 'rgba(203,81,132,0.12)', roleBorder: 'rgba(201,24,127,0.28)' },
-              { img: 'nguyen-thi-hanh.png',       role: 'Ủy viên',             name: 'Bà Nguyễn Thị Hạnh',          title: 'Trưởng ban Cố vấn',             roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
-              { img: 'tieu-yen-trinh.png',        role: 'Ủy viên',             name: 'Bà Tiêu Yến Trinh',           title: 'Phó Chủ tịch Thường trực',      roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
-              { img: 'luong-ngoc-tien.png',       role: 'Ủy viên',             name: 'Bà Lương Ngọc Tiên',          title: 'Phó Chủ tịch',       roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+              { img: 'nguyen-thi-hanh.png',       role: 'Ủy viên',             name: 'Bà Nguyễn Thị Hạnh',          title: 'Trưởng Ban Cố vấn HAWEE',        roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+              { img: 'tieu-yen-trinh.png',        role: 'Ủy viên',             name: 'Bà Tiêu Yến Trinh',           title: 'Phó Chủ tịch Thường trực HAWEE', roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
+              { img: 'luong-ngoc-tien.png',       role: 'Ủy viên',             name: 'Bà Lương Ngọc Tiên',          title: 'Phó Chủ tịch HAWEE',             roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
             ].map(({ img, role, name, title, roleColor, roleBg, roleBorder }, i) => {
               const soloOnMobile = i === 0;
               return (
