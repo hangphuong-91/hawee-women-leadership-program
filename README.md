@@ -1,16 +1,112 @@
-# React + Vite
+# HAWEE Women Leadership Program 2026 — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Website tuyển sinh & thương hiệu cho chương trình đào tạo lãnh đạo nữ cấp cao**
 
-Currently, two official plugins are available:
+🌐 **Live:** https://hawee-leadership-program.vercel.app/  
+📍 **Custom Domain:** https://leadership.hawee.vn/ (pending DNS setup)  
+🔗 **GitHub:** https://github.com/hangphuong-91/hawee-women-leadership-program  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📋 Tổng Quan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**HAWEE Women Leadership Program 2026** là chương trình đào tạo lãnh đạo nữ cấp cao, phối hợp **HAWEE × UBND TP.HCM / Thành Ủy**, sponsor chính **PNJ**.
 
-## Expanding the ESLint configuration
+**Mục tiêu:**
+- Tuyển 20 suất học viên đặc biệt (hội viên HAWEE + nhà nước)
+- Xây dựng thương hiệu Công-Tư dài hạn
+- Kết nối lãnh đạo nữ: nhà nước, doanh nhân, alumni
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Tagline:** "Từ quản lý hiệu quả đến lãnh đạo tạo tác động"
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Tool |
+|-------|------|
+| Frontend | React 18 + Vite |
+| Styling | Tailwind CSS 3 |
+| Animation | Framer Motion + pure CSS |
+| Hosting | Vercel |
+| Font | MonaSans (self-hosted) |
+
+---
+
+## 📁 Project Structure
+
+```
+website/
+├── public/
+│   ├── fonts/          # MonaSans .ttf files
+│   └── images/         # Logo + KV images
+├── src/
+│   ├── components/     # Navbar, Footer, Modal, etc.
+│   ├── pages/
+│   │   └── Landing.jsx # Main page
+│   ├── index.css       # Brand styles + animations
+│   ├── App.jsx
+│   └── main.jsx
+├── scripts/
+│   └── export-pdf.js   # PDF export utility
+├── outputs/            # Generated files
+├── CLAUDE.md           # Claude instructions
+├── PLAN.md             # Project roadmap
+├── README.md           # This file
+└── package.json
+```
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Dev server (http://localhost:5173)
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to Vercel
+vercel --prod
+
+# Export to PDF
+npm run export-pdf
+```
+
+---
+
+## 🎨 Design System
+
+**Colors:** Magenta (#CB5184) + Navy (#1A2F5A) + Gold (#D8A84F)  
+**Font:** MonaSans (Condensed SemiBold for headers, SemiExpanded Medium for body)  
+**Responsive:** Mobile-first, 640px (sm) & 1024px (lg) breakpoints
+
+---
+
+## 📱 Features
+
+✓ Hero section with animated lotus  
+✓ Partner logos (PNJ, UBND TPHCM, HAWEE)  
+✓ Program overview (6 sessions)  
+✓ Student benefits (5 boxes + CTA)  
+✓ Instructor profiles  
+✓ Smooth scroll animations  
+✓ Mobile responsive  
+✓ PDF export capability  
+
+---
+
+## 🌐 Deployment
+
+**Current:** https://hawee-leadership-program.vercel.app/  
+**Setup custom domain:** Add CNAME `leadership → cname.vercel-dns.com` at DNS registrar
+
+---
+
+## 📞 Support
+
+See CLAUDE.md for development guidelines & PLAN.md for project roadmap.
