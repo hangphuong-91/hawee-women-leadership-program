@@ -620,30 +620,29 @@ export default function Landing() {
           <FadeUp delay={0.5}>
             <div className="mt-12 max-w-4xl mx-auto">
               <p className="text-[#E8C96A] text-sm uppercase tracking-[0.2em] font-bold text-center mb-6">Đặc quyền học viên nhận về</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                style={{ gridAutoRows: '1fr' }}>
                 {[
-                  { icon: Layers, gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn', sub: 'OKR, GROW Coaching, Design Thinking mini-sprint, v.v' },
-                  { icon: Monitor, gradient: 'linear-gradient(135deg, #1A2F5A, #603079)', title: 'Platform E-Learning', sub: 'Xuyên suốt hành trình, nâng cao trải nghiệm học và kết nối mạng lưới học viên' },
-                  { icon: GraduationCap, gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức từ HAWEE × UBND TP.HCM · Lễ tốt nghiệp tháng 5/2027' },
-                  { icon: Network, gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư', sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
-                  { icon: Users, gradient: 'linear-gradient(135deg, #6A2F62, #CB5184)', title: 'Mạng Lưới Alumni', sub: 'Cộng đồng lãnh đạo nữ kết nối và đồng hành sau chương trình' },
+                  { icon: Layers,       gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn',   sub: 'OKR · GROW Coaching · Design Thinking mini-sprint · Stakeholder Map' },
+                  { icon: Monitor,      gradient: 'linear-gradient(135deg, #1A2F5A, #603079)', title: 'Platform E-Learning',     sub: 'Kết nối học viên & tài nguyên xuyên suốt 12 tháng hành trình' },
+                  { icon: GraduationCap,gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức HAWEE × UBND TP.HCM · Lễ tốt nghiệp 5/2027' },
+                  { icon: Network,      gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư',      sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
+                  { icon: Users,        gradient: 'linear-gradient(135deg, #6A2F62, #CB5184)', title: 'Mạng Lưới Alumni',        sub: 'Cộng đồng lãnh đạo nữ — kết nối và đồng hành sau chương trình' },
                 ].map(({ icon: Icon, gradient, title, sub }, i) => (
                   <FadeUp key={i} delay={0.52 + i * 0.06} className="h-full">
-                    <div className={`${cardHover} p-5 h-full flex items-start gap-4`}>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: gradient }}>
+                    <div className={`${cardHover} p-5 h-full flex flex-col lg:min-h-[150px]`}>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mb-3" style={{ background: gradient }}>
                         <Icon size={16} color="white" strokeWidth={1.8} />
                       </div>
-                      <div>
-                        <p className="text-[#1A0F1E] font-semibold text-sm mb-0.5">{title}</p>
-                        <p className="text-[#9B7080] text-xs leading-snug">{sub}</p>
-                      </div>
+                      <p className="text-[#1A0F1E] font-semibold text-sm mb-1">{title}</p>
+                      <p className="text-[#9B7080] text-xs leading-relaxed">{sub}</p>
                     </div>
                   </FadeUp>
                 ))}
 
                 {/* CTA card — same grid size, highlighted */}
                 <FadeUp delay={0.82} className="h-full">
-                  <a href="#dang-ky" className="block h-full rounded-2xl p-5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1"
+                  <a href="#dang-ky" className="block h-full rounded-2xl p-5 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-1 lg:min-h-[150px]"
                     style={{
                       background: 'linear-gradient(140deg, #55002A 0%, #8C0040 30%, #C9187F 65%, #A0104F 100%)',
                       boxShadow: '0 0 0 2.5px #C9187F, 0 10px 40px rgba(153,27,85,0.65)',
