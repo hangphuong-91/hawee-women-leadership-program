@@ -270,8 +270,8 @@ export default function Landing() {
                 <span className="gradient-text-gold">LEADERSHIP PROGRAM</span>
               </h1>
               <p className="mt-2 md:mt-4 text-sm md:text-xl leading-snug md:leading-relaxed text-white/85">
-                Từ quản lý xuất sắc<br />
-                Đến kiến tạo ảnh hưởng chiến lược sâu sắc
+                Từ quản lý hiệu quả<br />
+                đến lãnh đạo tạo tác động
               </p>
               <p className="mt-1 md:mt-1.5 text-white/55 text-xs tracking-wide md:tracking-widest uppercase">GIÀU TOÀN DIỆN - LÃNH ĐẠO TẠO DI SẢN</p>
             </motion.div>
@@ -370,11 +370,11 @@ export default function Landing() {
               <p className="text-primary text-sm uppercase tracking-[0.2em] font-bold mb-5 text-center">Mục Tiêu Trọng Tâm</p>
               <ul className="space-y-3.5">
                 {[
-                  <span>Tập trung <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phát triển nội lực</mark> và định hình <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phong cách hiện diện</mark> của nhà lãnh đạo.</span>,
-                  <span>Xây dựng năng lực <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>lãnh đạo thấu cảm</mark> và dẫn dắt đội ngũ hiệu quả.</span>,
-                  <span>Nâng cao <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>kỹ năng giao tiếp</mark> và năng lực tạo ảnh hưởng, kết nối.</span>,
-                  <span>Định hình văn hóa <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>đổi mới sáng tạo</mark>, rèn luyện kỹ năng Mentoring &amp; Coaching.</span>,
-                  <span>Khả năng kết nối và tạo <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>tác động tích cực</mark> đến cộng đồng và xã hội.</span>,
+                  <span>Phát huy <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>nội lực</mark>, định hình <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phong cách hiện diện</mark> của nhà lãnh đạo.</span>,
+                  <span>Xây dựng năng lực <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>lãnh đạo thấu cảm</mark>, phát huy <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>gắn kết tổ chức</mark>.</span>,
+                  <span>Hoàn thiện <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>kỹ năng giao tiếp trước công chúng</mark>, nâng tầm ảnh hưởng.</span>,
+                  <span>Nuôi dưỡng văn hóa <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>đổi mới sáng tạo</mark>, nâng cao kỹ năng <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>Mentoring và Coaching</mark>.</span>,
+                  <span>Nâng tầm kết nối, tạo <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>tác động tích cực</mark> đến cộng đồng và xã hội.</span>,
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center"

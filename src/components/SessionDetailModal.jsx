@@ -4,7 +4,7 @@ import { X } from 'lucide-react'
 const sessionData = {
   1: {
     title: 'Lãnh Đạo Bản Thân',
-    subtitle: 'Leadership không bắt đầu khi chúng ta thay đổi người khác, mà bắt đầu khi chúng ta dám nhìn lại chính mình.',
+    subtitle: 'Xác định la bàn lãnh đạo, nền tảng hiểu bản thân, phát huy năng lượng và nội lực người lãnh đạo. Mọi ảnh hưởng bên ngoài đều bắt đầu từ sức mạnh khai phóng bên trong.',
     objectives: [
       'Thiết lập nền tảng tinh thần và tiêu chuẩn cho toàn bộ hành trình 12 tháng',
       'Giúp học viên nhìn lại bản thân ở góc độ người lãnh đạo',
