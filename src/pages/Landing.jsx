@@ -4,6 +4,7 @@ import { motion, useMotionValue, animate, useInView } from 'framer-motion'
 import { ArrowRight, Globe, Target, Network, TrendingUp, Layers, Compass, GraduationCap, Users, Shield, User } from 'lucide-react'
 import FadeUp from '../components/FadeUp'
 import FloatingCTA from '../components/FloatingCTA'
+import SessionDetailModal from '../components/SessionDetailModal'
 
 /* ─── Animated counter ─── */
 function AnimatedNumber({ value, suffix = '' }) {
@@ -47,7 +48,7 @@ const whyItems = [
   },
   {
     icon: Target,
-    gradient: 'linear-gradient(135deg, #C9187F, #E04020)',
+    gradient: 'linear-gradient(135deg, #CB5184, #DC76B0)',
     stat: 'Còn 4 năm — Mục tiêu 2030 không chờ đợi',
     title: 'Chính Sách Đang Gọi Tên Bạn',
     desc: '2030 đang đến — 70% cơ quan nhà nước phải có nữ lãnh đạo. Nghị quyết đã ký, chỉ tiêu đã có. Câu hỏi duy nhất: Tên bạn trong danh sách những người đã chuẩn bị, hay những người ước mình đã bắt đầu sớm hơn?',
@@ -101,23 +102,54 @@ const sessions = [
 ]
 
 const phaseConfig = [
-  { label: 'Nền Tảng Lãnh Đạo', range: 'Buổi 1–3', gradient: 'linear-gradient(135deg, #C9187F, #E04020)', color: '#C9187F' },
+  { label: 'Nền Tảng Lãnh Đạo', range: 'Buổi 1–3', gradient: 'linear-gradient(135deg, #CB5184, #DC76B0)', color: '#C9187F' },
   { label: 'Giao Tiếp & Văn Hóa', range: 'Buổi 4–5', gradient: 'linear-gradient(135deg, #E04020, #BE1E2D)', color: '#E04020' },
-  { label: 'Tạo Ảnh Hưởng', range: 'Buổi 6', gradient: 'linear-gradient(135deg, #F2C200, #C9940A)', color: '#C9940A' },
+  { label: 'Tạo Ảnh Hưởng', range: 'Buổi 6', gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', color: '#C9940A' },
 ]
 
-const phasePhilosophy = [
-  { phase: 'Giai đoạn 1', quote: '"Lãnh đạo bản thân trước khi lãnh đạo người khác."', color: '#C9187F' },
-  { phase: 'Giai đoạn 2', quote: '"Từ nội lực đến hiện diện — biến năng lực thành tác động."', color: '#E04020' },
-  { phase: 'Giai đoạn 3', quote: '"Lãnh đạo tạo di sản — từ quản lý đến kiến tạo."', color: '#C9940A' },
-]
+const roadmapData = {
+  header: 'Lãnh đạo bản thân trước khi lãnh đạo người khác',
+  phases: [
+    {
+      num: 1,
+      title: 'Nền Tảng Lãnh Đạo',
+      quote: 'Lãnh đạo bản thân',
+      description: 'Sessions 1–3: Hiểu bản thân, quản lý cảm xúc, dựng nền tảng lãnh đạo vững chắc',
+      color: '#CB5184',
+      bgGrad: 'linear-gradient(135deg, #6A2F62 0%, #CB5184 100%)',
+    },
+    {
+      num: 2,
+      title: 'Giao Tiếp & Văn Hóa',
+      quote: 'Từ nội lực đến hiện diện',
+      description: 'Sessions 4–5: Biến năng lực thành tác động, giao tiếp hiệu quả, xây dựng văn hóa',
+      color: '#E04020',
+      bgGrad: 'linear-gradient(135deg, #773C89 0%, #E04020 100%)',
+    },
+    {
+      num: 3,
+      title: 'Tạo Ảnh Hưởng',
+      quote: 'Lãnh đạo tạo di sản',
+      description: 'Session 6: Từ quản lý đến kiến tạo, kết nối & tạo ảnh hưởng bền vững',
+      color: '#D8A84F',
+      bgGrad: 'linear-gradient(135deg, #C9940A 0%, #D8A84F 100%)',
+    },
+  ],
+}
 
 export default function Landing() {
   const [regForm, setRegForm] = useState({ name: '', email: '', phone: '', company: '', title: '', chi_hoi: '', note: '' })
   const [regSubmitting, setRegSubmitting] = useState(false)
   const [regSuccess, setRegSuccess] = useState(false)
   const [regError, setRegError] = useState('')
+  const [sessionModalOpen, setSessionModalOpen] = useState(false)
+  const [selectedSession, setSelectedSession] = useState(null)
   const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
+
+  const openSessionDetail = (sessionNum) => {
+    setSelectedSession(sessionNum)
+    setSessionModalOpen(true)
+  }
 
   const handleRegChange = e => setRegForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -247,7 +279,7 @@ export default function Landing() {
               className="md:static md:mt-7 absolute left-0 right-0 z-10"
               style={{ bottom: '-3%' }}>
               <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-center md:items-start scale-95 origin-bottom md:origin-bottom-left md:scale-100">
-                <a href="#dang-ky" className="arrow-light-trail btn-gold cta-pulse text-sm font-semibold inline-flex items-center justify-center gap-2 py-3.5 px-8">
+                <a href="#dang-ky" className="arrow-light-trail cta-dark-magenta text-sm font-semibold inline-flex items-center justify-center gap-2 py-3.5 px-8">
                   Nộp hồ sơ ứng tuyển <ArrowRight size={15} />
                 </a>
                 <a href="#chuong-trinh" className="arrow-light-trail btn-outline-white text-sm font-semibold inline-flex items-center justify-center py-3 px-7">
@@ -263,9 +295,9 @@ export default function Landing() {
       <section id="chuong-trinh" className="relative overflow-hidden py-20"
         style={{ background: 'linear-gradient(175deg, #FFFFFF 0%, #FFF4F8 50%, #FFF8F0 100%)' }}>
         <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-40"
-          style={{ background: 'radial-gradient(circle, rgba(201,24,127,0.15), transparent)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(203,81,132,0.15), transparent)' }} />
         <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full blur-3xl pointer-events-none opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(242,194,0,0.2), transparent)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(216,168,79,0.2), transparent)' }} />
 
         <div className="container-custom relative">
           <FadeUp>
@@ -321,7 +353,7 @@ export default function Landing() {
                     <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-4 border-t border-[#F5D5E5]">
                       {[['500+','Hội viên'],['200+','Chương trình'],['14.000+','Lượt tham dự'],['105 tỷ','Đóng góp (VND)']].map(([v, l]) => (
                         <div key={l} className="flex items-baseline gap-1.5">
-                          <p className="font-semibold text-base" style={{ background: 'linear-gradient(135deg, #C9187F, #E04020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{v}</p>
+                          <p className="font-semibold text-base" style={{ background: 'linear-gradient(135deg, #CB5184, #DC76B0)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{v}</p>
                           <p className="text-[#9B7080] text-xs">{l}</p>
                         </div>
                       ))}
@@ -338,15 +370,15 @@ export default function Landing() {
               <p className="text-primary text-sm uppercase tracking-[0.2em] font-bold mb-5 text-center">Mục Tiêu Trọng Tâm</p>
               <ul className="space-y-3.5">
                 {[
-                  <span>Tập trung <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phát triển nội lực</mark> và định hình <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phong cách hiện diện</mark> của nhà lãnh đạo.</span>,
-                  <span>Xây dựng năng lực <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>lãnh đạo thấu cảm</mark> và dẫn dắt đội ngũ hiệu quả.</span>,
-                  <span>Nâng cao <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>kỹ năng giao tiếp</mark> và năng lực tạo ảnh hưởng, kết nối.</span>,
-                  <span>Định hình văn hóa <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>đổi mới sáng tạo</mark>, rèn luyện kỹ năng Mentoring &amp; Coaching.</span>,
-                  <span>Khả năng kết nối và tạo <mark style={{ background: 'rgba(201,24,127,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>tác động tích cực</mark> đến cộng đồng và xã hội.</span>,
+                  <span>Tập trung <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phát triển nội lực</mark> và định hình <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>phong cách hiện diện</mark> của nhà lãnh đạo.</span>,
+                  <span>Xây dựng năng lực <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>lãnh đạo thấu cảm</mark> và dẫn dắt đội ngũ hiệu quả.</span>,
+                  <span>Nâng cao <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>kỹ năng giao tiếp</mark> và năng lực tạo ảnh hưởng, kết nối.</span>,
+                  <span>Định hình văn hóa <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>đổi mới sáng tạo</mark>, rèn luyện kỹ năng Mentoring &amp; Coaching.</span>,
+                  <span>Khả năng kết nối và tạo <mark style={{ background: 'rgba(203,81,132,0.12)', color: '#C9187F', borderRadius: '4px', padding: '1px 4px', fontWeight: 600 }}>tác động tích cực</mark> đến cộng đồng và xã hội.</span>,
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center"
-                      style={{ background: 'linear-gradient(135deg, #C9187F, #E04020)' }}>
+                      style={{ background: 'linear-gradient(135deg, #CB5184, #DC76B0)' }}>
                       <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
                         <polyline points="2 6 5 9 10 3" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
@@ -364,22 +396,22 @@ export default function Landing() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { num: '01', icon: Layers, gradient: 'linear-gradient(135deg, #C9187F 0%, #E04020 100%)', glow: 'rgba(201,24,127,0.35)', label: 'Inner Foundation', title: 'Nội Lực Từ Bên Trong', desc: 'Xây dựng nền tảng lãnh đạo từ bên trong: tự nhận thức, trí tuệ cảm xúc và bản lĩnh đối mặt áp lực. Không thể tạo ảnh hưởng bền vững nếu thiếu nội lực nền tảng.' },
-              { num: '02', icon: Network, gradient: 'linear-gradient(135deg, #1A2F5A 0%, #4A1870 50%, #C9187F 100%)', glow: 'rgba(26,47,90,0.4)', label: 'Presence & Network', title: 'Hiện Diện & Kết Nối', desc: 'Biến năng lực cá nhân thành ảnh hưởng tập thể — qua giao tiếp có tác động, văn hóa đổi mới và mạng lưới Công–Tư liên ngành duy nhất tại TP.HCM.' },
-              { num: '03', icon: Globe, gradient: 'linear-gradient(135deg, #C9940A 0%, #F2C200 60%, #C9A84C 100%)', glow: 'rgba(201,168,76,0.45)', label: 'Legacy Leadership', title: 'Lãnh Đạo Tạo Di Sản', desc: 'Vươn ra ngoài chức năng hiện tại, tạo tác động lan tỏa cho cộng đồng và xã hội. Lãnh đạo không cần quyền lực — lãnh đạo bằng ảnh hưởng và di sản để lại.' },
-            ].map(({ num, icon: Icon, gradient, glow, label, title, desc }, i) => (
+              { num: '01', icon: Layers, gradient: 'linear-gradient(135deg, #111144 0%, #371D5D 50%, #603079 100%)', glow: 'rgba(96,48,121,0.35)', label: 'Inner Foundation', title: 'Nội Lực Từ Bên Trong', desc: 'Xây dựng nền tảng lãnh đạo từ bên trong: tự nhận thức, trí tuệ cảm xúc và bản lĩnh đối mặt áp lực. Không thể tạo ảnh hưởng bền vững nếu thiếu nội lực nền tảng.', textColor: 'white', labelColor: 'rgba(255,255,255,0.55)', numColor: 'rgba(255,255,255,0.08)', isLight: false },
+              { num: '02', icon: Network, gradient: 'linear-gradient(135deg, #6A2F62 0%, #991B55 50%, #CB5184 100%)', glow: 'rgba(203,81,132,0.40)', label: 'Presence & Network', title: 'Hiện Diện & Kết Nối', desc: 'Biến năng lực cá nhân thành ảnh hưởng tập thể — qua giao tiếp có tác động, văn hóa đổi mới và mạng lưới Công–Tư liên ngành duy nhất tại TP.HCM.', textColor: 'white', labelColor: 'rgba(255,255,255,0.55)', numColor: 'rgba(255,255,255,0.08)', isLight: false },
+              { num: '03', icon: Globe, gradient: 'linear-gradient(135deg, #8B6914 0%, #C9A84C 50%, #A98436 100%)', glow: 'rgba(201,168,76,0.40)', label: 'Legacy Leadership', title: 'Lãnh Đạo Tạo Di Sản', desc: 'Vươn ra ngoài chức năng hiện tại, tạo tác động lan tỏa cho cộng đồng và xã hội. Lãnh đạo không cần quyền lực — lãnh đạo bằng ảnh hưởng và di sản để lại.', textColor: '#3D2800', labelColor: '#8B6914', numColor: 'rgba(0,0,0,0.08)', isLight: true },
+            ].map(({ num, icon: Icon, gradient, glow, label, title, desc, textColor, labelColor, numColor, isLight }, i) => (
               <FadeUp key={i} delay={0.35 + i * 0.1} className="h-full">
                 <div className="rounded-2xl p-7 h-full relative overflow-hidden group hover:scale-[1.02] transition-all duration-300 cursor-default"
                   style={{ background: gradient, boxShadow: `0 4px 24px ${glow}` }}>
                   <p className="absolute top-3 right-5 font-bold select-none"
-                    style={{ fontSize: '5rem', color: 'rgba(255,255,255,0.08)', lineHeight: 1 }}>{num}</p>
+                    style={{ fontSize: '5rem', color: numColor, lineHeight: 1 }}>{num}</p>
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                    style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.25)' }}>
-                    <Icon size={22} color="white" strokeWidth={1.5} />
+                    style={{ background: isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', border: isLight ? '1px solid rgba(0,0,0,0.2)' : '1px solid rgba(255,255,255,0.25)' }}>
+                    <Icon size={22} color={textColor} strokeWidth={1.5} />
                   </div>
-                  <p className="text-white/55 text-[10px] uppercase tracking-widest mb-1.5">{label}</p>
-                  <h3 className="text-white font-semibold text-lg mb-3 leading-snug">{title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">{desc}</p>
+                  <p className="text-[10px] uppercase tracking-widest mb-1.5" style={{ color: labelColor }}>{label}</p>
+                  <h3 className="font-semibold text-lg mb-3 leading-snug" style={{ color: textColor }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: isLight ? '#6B5D12' : 'rgba(255,255,255,0.80)' }}>{desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -437,8 +469,8 @@ export default function Landing() {
                   <a
                     href="#dang-ky"
                     onClick={(e) => { e.preventDefault(); document.getElementById('dang-ky')?.scrollIntoView({ behavior: 'smooth' }); }}
-                    className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-                    style={{ background: 'linear-gradient(135deg, #C9187F 0%, #E04020 60%, #F08830 100%)', boxShadow: '0 4px 20px rgba(201,24,127,0.28)' }}>
+                    className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                    style={{ background: 'linear-gradient(135deg, #D8A84F 0%, #E8C96A 50%, #C9A84C 100%)', color: '#3D2800', boxShadow: '0 4px 20px rgba(216,168,79,0.35)' }}>
                     <span>Nộp Hồ Sơ Ứng Tuyển</span>
                     <ArrowRight size={15} />
                   </a>
@@ -453,15 +485,17 @@ export default function Landing() {
 
       {/* ════════════ LỘ TRÌNH ════════════ */}
       <section id="lo-trinh" className="relative overflow-hidden py-20"
-        style={{ background: 'linear-gradient(175deg, #FFE8E0 0%, #FFF3F8 50%, #FFFCF8 100%)' }}>
-        <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(201,24,127,0.12), transparent)' }} />
+        style={{ background: 'linear-gradient(135deg, #1A1B38 0%, #261852 15%, #2D2050 35%, #3D2A40 50%, #2E1F38 70%, #261852 85%, #1A1B38 100%)' }}>
+        <div className="absolute top-0 left-1/4 w-96 h-96 opacity-20 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(216,168,79,0.4), transparent)' }} />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 opacity-15 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(216,168,79,0.3), transparent)' }} />
 
         <div className="container-custom relative">
           <FadeUp>
-            <p className="text-primary text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">12 tháng · 6 buổi · 3 giai đoạn</p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#1A0F1E] text-center mb-3">Hành Trình Từ Bên Trong Ra Bên Ngoài</h2>
-            <p className="text-[#9B7080] text-center text-sm max-w-xl mx-auto mb-12">
+            <p className="text-[#F2D680] text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">12 tháng · 6 buổi · 3 giai đoạn</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Hành Trình Từ Bên Trong Ra Bên Ngoài</h2>
+            <p className="text-white/90 text-center text-sm max-w-xl mx-auto mb-12">
               Mỗi 2 tháng một buổi — đủ thời gian áp dụng vào thực tiễn, thu hoạch và trở lại với chiều sâu mới.
             </p>
           </FadeUp>
@@ -470,32 +504,73 @@ export default function Landing() {
           <FadeUp delay={0.1}>
             <div className="flex flex-wrap justify-center gap-3 mb-10">
               {phaseConfig.map((p, i) => (
-                <div key={i} className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#F5D5E5] shadow-sm">
+                <div key={i} className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/12 backdrop-blur-sm border-1.5 shadow-lg" style={{ borderColor: '#F2D680' }}>
                   <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: p.gradient }} />
-                  <span className="text-[#3D2030] text-xs font-medium">{p.label}</span>
-                  <span className="text-[#9B7080] text-xs">{p.range}</span>
+                  <span className="text-white font-semibold text-xs">{p.label}</span>
+                  <span className="text-white/85 text-xs font-medium">{p.range}</span>
                 </div>
               ))}
             </div>
           </FadeUp>
 
-          {/* Phase philosophy */}
+          {/* Roadmap Header */}
           <FadeUp delay={0.15}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8 max-w-4xl mx-auto">
-              {phasePhilosophy.map((p, i) => (
-                <div key={i} className="rounded-2xl px-4 py-4 text-center border"
-                  style={{ background: `${p.color}0D`, borderColor: `${p.color}28` }}>
-                  <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: p.color }}>{p.phase}</p>
-                  <p className="text-[#3D2030] text-xs italic leading-relaxed">{p.quote}</p>
-                </div>
-              ))}
+            <div className="max-w-4xl mx-auto mb-14 text-center">
+
+              {/* 3-Phase grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {roadmapData.phases.map((phase, i) => (
+                  <FadeUp key={i} delay={0.15 + i * 0.08} className="h-full">
+                    <div className="relative h-full">
+                      {/* Connector line (desktop only) */}
+                      {i < roadmapData.phases.length - 1 && (
+                        <div className="hidden md:block absolute right-0 top-1/3 w-6 h-1 translate-x-full"
+                          style={{ background: 'linear-gradient(90deg, rgba(242,214,128,0.6), transparent)' }} />
+                      )}
+
+                      {/* Phase card */}
+                      <div className="h-full flex flex-col rounded-2xl p-6 border-2 backdrop-blur-md relative overflow-hidden"
+                        style={{
+                          borderColor: phase.color,
+                          background: `linear-gradient(135deg, ${phase.bgGrad.split(', ')[1].split(' ')[0]}22 0%, ${phase.bgGrad.split(', ')[2].split(')')[0]}22 100%), linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)`,
+                          boxShadow: `0 0 0 1px ${phase.color}33, 0 8px 24px ${phase.color}22`,
+                        }}>
+
+                        {/* Top glow line */}
+                        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${phase.color}, transparent)` }} />
+
+                        {/* Number circle */}
+                        <div className="flex justify-center mb-6">
+                          <div className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl text-white border-2 shadow-lg"
+                            style={{
+                              background: phase.bgGrad,
+                              borderColor: '#F2D680',
+                              boxShadow: `0 0 0 4px rgba(242,214,128,0.20), 0 8px 24px ${phase.color}40`,
+                            }}>
+                            {phase.num}
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-2">{phase.title}</h4>
+                        <p className="text-white/95 font-semibold text-base leading-relaxed mb-4" style={{ color: phase.color }}>
+                          {phase.quote}
+                        </p>
+                        <p className="text-white/70 text-sm leading-relaxed flex-1">
+                          {phase.description}
+                        </p>
+                      </div>
+                    </div>
+                  </FadeUp>
+                ))}
+              </div>
             </div>
           </FadeUp>
 
           {/* Roadmap timeline */}
           <div className="relative max-w-3xl mx-auto">
             <div className="absolute left-[23px] top-2 bottom-2 w-0.5"
-              style={{ background: 'linear-gradient(to bottom, #C9187F 0%, #E04020 50%, #C9940A 100%)' }} />
+              style={{ background: 'linear-gradient(to bottom, #D8A84F 0%, #CB5184 50%, #773C89 100%)' }} />
             <div className="space-y-5">
               {sessions.map((s, i) => {
                 const ph = phaseConfig[s.phase]
@@ -504,30 +579,36 @@ export default function Landing() {
                   <FadeUp key={i} delay={i * 0.08}>
                     {isFirstInPhase && (
                       <div className="flex items-center gap-3 pl-14 mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full flex-shrink-0"
-                          style={{ color: ph.color, background: `${ph.color}12`, border: `1px solid ${ph.color}28` }}>
+                        <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full flex-shrink-0 text-white bg-white/12"
+                          style={{ border: `1.5px solid #F2D680` }}>
                           {ph.label} · {ph.range}
                         </span>
-                        <div className="h-px flex-1" style={{ background: `${ph.color}25` }} />
+                        <div className="h-px flex-1" style={{ background: 'rgba(242,214,128,0.4)' }} />
                       </div>
                     )}
                     <div className="flex gap-4 items-start">
                       <div className="relative z-10 flex-shrink-0">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm text-white"
-                          style={{ background: ph.gradient, border: '2.5px solid white', boxShadow: `0 0 0 3px ${ph.color}28, 0 4px 12px ${ph.color}30` }}>
+                          style={{ background: ph.gradient, border: '2.5px solid #F2D680', boxShadow: `0 0 0 3px rgba(242,214,128,0.30), 0 4px 16px rgba(242,214,128,0.35)` }}>
                           {s.num}
                         </div>
                       </div>
-                      <div className={`${cardHover} flex-1 p-5`} style={{ borderLeft: `3px solid ${ph.color}` }}>
+                      <button
+                        onClick={() => openSessionDetail(parseInt(s.num))}
+                        className="flex-1 p-5 rounded-xl backdrop-blur-sm bg-white/10 border-1.5 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-left group"
+                        style={{ borderColor: '#F2D680' }}>
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                          <h3 className="text-[#1A0F1E] font-semibold text-sm">{s.title}</h3>
-                          <span className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full flex-shrink-0"
-                            style={{ color: ph.color, background: `${ph.color}12` }}>
+                          <h3 className="text-white font-semibold text-sm leading-snug group-hover:text-[#F2D680] transition-colors">{s.title}</h3>
+                          <span className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full flex-shrink-0 text-white bg-white/12"
+                            style={{ border: `0.75px solid #F2D680` }}>
                             {s.sub}
                           </span>
                         </div>
-                        <p className="text-[#5C3545] text-xs leading-relaxed">{s.desc}</p>
-                      </div>
+                        <p className="text-white/85 text-xs leading-relaxed group-hover:text-white/95 transition-colors">{s.desc}</p>
+                        <div className="mt-3 text-sm font-bold text-[#F2D680] flex items-center gap-1">
+                          Xem chi tiết →
+                        </div>
+                      </button>
                     </div>
                   </FadeUp>
                 )
@@ -538,14 +619,14 @@ export default function Landing() {
           {/* Outputs — 6-card grid */}
           <FadeUp delay={0.5}>
             <div className="mt-12 max-w-4xl mx-auto">
-              <p className="text-primary text-sm uppercase tracking-[0.2em] font-bold text-center mb-6">Đặc quyền học viên nhận về</p>
+              <p className="text-[#E8C96A] text-sm uppercase tracking-[0.2em] font-bold text-center mb-6">Đặc quyền học viên nhận về</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { icon: TrendingUp, gradient: 'linear-gradient(135deg, #C9187F, #E04020)', title: 'Đánh Giá Năng Lực', sub: 'Trước & Sau chương trình — lộ trình phát triển lãnh đạo cá nhân hóa' },
-                  { icon: Layers, gradient: 'linear-gradient(135deg, #F2C200, #C9940A)', title: 'Bộ Toolkit Thực Tiễn', sub: 'OKR · GROW Coaching · Stakeholder Map · Empathy Mapping' },
+                  { icon: TrendingUp, gradient: 'linear-gradient(135deg, #CB5184, #DC76B0)', title: 'Đánh Giá Năng Lực', sub: 'Trước & Sau chương trình — lộ trình phát triển lãnh đạo cá nhân hóa' },
+                  { icon: Layers, gradient: 'linear-gradient(135deg, #D8A84F, #C9940A)', title: 'Bộ Toolkit Thực Tiễn', sub: 'OKR · GROW Coaching · Stakeholder Map · Empathy Mapping' },
                   { icon: Users, gradient: 'linear-gradient(135deg, #1A2F5A, #C9187F)', title: 'Mạng Lưới Công–Tư', sub: 'Kết nối độc quyền lãnh đạo nhà nước & doanh nhân liên ngành' },
                   { icon: Compass, gradient: 'linear-gradient(135deg, #C9187F, #8C0038)', title: 'Phong Thái & Hình Ảnh Lãnh Đạo', sub: 'Tham gia cùng chương trình Hình ảnh Nữ Doanh Nhân & Nhân hiệu của HAWEE', isNew: true },
-                  { icon: GraduationCap, gradient: 'linear-gradient(135deg, #C9940A, #F2C200)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức từ HAWEE × UBND TP.HCM · Lễ tốt nghiệp tháng 5/2027' },
+                  { icon: GraduationCap, gradient: 'linear-gradient(135deg, #C9940A, #D8A84F)', title: 'Chứng Nhận Hoàn Thành', sub: 'Chứng nhận chính thức từ HAWEE × UBND TP.HCM · Lễ tốt nghiệp tháng 5/2027' },
                   { icon: Network, gradient: 'linear-gradient(135deg, #1A2F5A, #4A1870)', title: 'Alumni Network Trọn Đời', sub: 'Cộng đồng lãnh đạo nữ — kết nối và đồng hành sau chương trình' },
                 ].map(({ icon: Icon, gradient, title, sub, isNew }, i) => (
                   <FadeUp key={i} delay={0.52 + i * 0.06} className="h-full">
@@ -558,7 +639,7 @@ export default function Landing() {
                           <p className="text-[#1A0F1E] font-semibold text-sm">{title}</p>
                           {isNew && (
                             <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
-                              style={{ background: 'rgba(201,24,127,0.10)', color: '#C9187F', border: '1px solid rgba(201,24,127,0.22)' }}>
+                              style={{ background: 'rgba(203,81,132,0.10)', color: '#C9187F', border: '1px solid rgba(201,24,127,0.22)' }}>
                               Mới
                             </span>
                           )}
@@ -623,7 +704,7 @@ export default function Landing() {
       <section className="relative overflow-hidden py-20"
         style={{ background: 'linear-gradient(175deg, #FFFCF8 0%, #FFF3F0 50%, #FFF0E8 100%)' }}>
         <div className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(201,24,127,0.12), transparent)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(203,81,132,0.12), transparent)' }} />
 
         <div className="container-custom relative">
           <FadeUp>
@@ -672,7 +753,7 @@ export default function Landing() {
                   <ul className="space-y-3">
                     {['Cấp CEO, Founder, Giám đốc điều hành', 'Hội viên HAWEE (HCM + Bình Dương + Vũng Tàu)', 'Nhu cầu: kết nối Công–Tư, mở rộng mạng lưới', 'Hành trình: từ doanh nghiệp đến ảnh hưởng chính sách'].map((item, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #C9187F, #F2C200)' }} />
+                        <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #C9187F, #D8A84F)' }} />
                         <span className="text-[#5C3545] text-sm">{item}</span>
                       </li>
                     ))}
@@ -685,29 +766,29 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════ BAN CHỈ ĐẠO TỔ CHỨC ════════════ */}
+      {/* ════════════ HÀNH TRÌNH TỪ BÊN TRONG RA BÊN NGOÀI ════════════ */}
       <section className="relative overflow-hidden py-20"
         style={{ background: 'linear-gradient(150deg, #1E0618 0%, #480D35 30%, #7A1850 50%, #480D35 70%, #1E0618 100%)' }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 75% 50%, rgba(202,28,104,0.45) 0%, transparent 50%), radial-gradient(ellipse at 22% 40%, rgba(202,28,104,0.30) 0%, transparent 45%), radial-gradient(ellipse at 50% 5%, rgba(201,168,76,0.12) 0%, transparent 40%)' }} />
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.45), transparent)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,24,127,0.30), transparent)' }} />
+          style={{ background: 'radial-gradient(ellipse at 75% 50%, rgba(153,27,85,0.50) 0%, transparent 50%), radial-gradient(ellipse at 22% 40%, rgba(96,48,121,0.35) 0%, transparent 45%), radial-gradient(ellipse at 50% 5%, rgba(216,168,79,0.15) 0%, transparent 40%)' }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(216,168,79,0.50), transparent)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(153,27,85,0.40), transparent)' }} />
 
         <div className="container-custom relative">
           <FadeUp>
-            <p className="text-[#C9A84C] text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">Dẫn dắt hành trình</p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Ban Chỉ Đạo Tổ Chức</h2>
-            <p className="text-white/40 text-center text-sm max-w-xl mx-auto mb-12">
-              Đội ngũ lãnh đạo tâm huyết — kiến tạo tầm nhìn, điều phối và hiện thực hóa sứ mệnh của chương trình.
+            <p className="text-[#E8C96A] text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">Dẫn dắt hành trình</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white text-center mb-3">Hành Trình Từ Bên Trong Ra Bên Ngoài</h2>
+            <p className="text-white/70 text-center text-sm max-w-2xl mx-auto mb-12">
+              Đội ngũ lãnh đạo tâm huyết — kiến tạo tầm nhìn từ nội tâm, điều phối sức mạnh nội lực, và hiện thực hóa ảnh hưởng bền vững ra cộng đồng.
             </p>
           </FadeUp>
 
           {/* Ban Chỉ Đạo — 3-col desktop / 2-col mobile (Dung solo row 1) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {[
-              { img: 'cao-thi-ngoc-dung.png',     role: 'Chỉ đạo Dự án',      name: 'Bà Cao Thị Ngọc Dung',        title: 'Chủ tịch HAWEE',                roleColor: '#F2C200', roleBg: 'rgba(242,194,0,0.15)', roleBorder: 'rgba(242,194,0,0.35)' },
-              { img: 'huynh-thi-xuan-lien-2.png', role: 'Trưởng Ban Tổ chức',  name: 'Bà Huỳnh Thị Xuân Liên',      title: 'Phó Chủ tịch HAWEE',            roleColor: '#FF7EB0', roleBg: 'rgba(201,24,127,0.15)', roleBorder: 'rgba(201,24,127,0.35)' },
-              { img: 'tran-phuong-ngoc-thao.png', role: 'Phó Ban Tổ chức',     name: 'Bà Trần Phương Ngọc Thảo',    title: 'Ủy viên Ban Thường vụ HAWEE',   roleColor: '#FF7EB0', roleBg: 'rgba(201,24,127,0.12)', roleBorder: 'rgba(201,24,127,0.28)' },
+              { img: 'cao-thi-ngoc-dung.png',     role: 'Chỉ đạo Dự án',      name: 'Bà Cao Thị Ngọc Dung',        title: 'Chủ tịch HAWEE',                roleColor: '#D8A84F', roleBg: 'rgba(242,194,0,0.15)', roleBorder: 'rgba(242,194,0,0.35)' },
+              { img: 'huynh-thi-xuan-lien-2.png', role: 'Trưởng Ban Tổ chức',  name: 'Bà Huỳnh Thị Xuân Liên',      title: 'Phó Chủ tịch HAWEE',            roleColor: '#FF7EB0', roleBg: 'rgba(203,81,132,0.15)', roleBorder: 'rgba(203,81,132,0.35)' },
+              { img: 'tran-phuong-ngoc-thao.png', role: 'Phó Ban Tổ chức',     name: 'Bà Trần Phương Ngọc Thảo',    title: 'Ủy viên Ban Thường vụ HAWEE',   roleColor: '#FF7EB0', roleBg: 'rgba(203,81,132,0.12)', roleBorder: 'rgba(201,24,127,0.28)' },
               { img: 'nguyen-thi-hanh.png',       role: 'Ủy viên',             name: 'Bà Nguyễn Thị Hạnh',          title: 'Trưởng ban Cố vấn',             roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
               { img: 'tieu-yen-trinh.png',        role: 'Ủy viên',             name: 'Bà Tiêu Yến Trinh',           title: 'Phó Chủ tịch Thường trực',      roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
               { img: 'luong-ngoc-tien.png',       role: 'Ủy viên',             name: 'Bà Lương Ngọc Tiên',          title: 'Trưởng ban Truyền thông',       roleColor: 'rgba(255,255,255,0.55)', roleBg: 'rgba(255,255,255,0.07)', roleBorder: 'rgba(255,255,255,0.18)' },
@@ -719,14 +800,14 @@ export default function Landing() {
                   <div className={`group relative rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5${soloOnMobile ? ' w-[calc(50%-10px)] sm:w-full' : ''}`}
                     style={{
                       background: 'linear-gradient(160deg, #1E0718 0%, #2E0F28 55%, #1A0616 100%)',
-                      border: '1.5px solid rgba(201,24,127,0.38)',
-                      boxShadow: '0 2px 16px rgba(201,24,127,0.10)',
+                      border: '1.5px solid rgba(203,81,132,0.38)',
+                      boxShadow: '0 2px 16px rgba(203,81,132,0.10)',
                     }}>
                     {/* Top glow line */}
                     <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,24,127,0.7) 35%, rgba(255,180,220,0.9) 50%, rgba(201,24,127,0.7) 65%, transparent 100%)' }} />
                     {/* Hover glow overlay */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-2xl"
-                      style={{ boxShadow: 'inset 0 0 32px rgba(201,24,127,0.14)', background: 'radial-gradient(ellipse at 50% 0%, rgba(201,24,127,0.10) 0%, transparent 65%)' }} />
+                      style={{ boxShadow: 'inset 0 0 32px rgba(201,24,127,0.14)', background: 'radial-gradient(ellipse at 50% 0%, rgba(203,81,132,0.10) 0%, transparent 65%)' }} />
                     {/* Image */}
                     <div className="relative h-44 overflow-hidden">
                       <div className="absolute bottom-0 inset-x-0 h-2/3 pointer-events-none z-10"
@@ -755,9 +836,9 @@ export default function Landing() {
 
       {/* ════════════ CÂU CHUYỆN ════════════ */}
       <section id="cau-chuyen" className="relative overflow-hidden py-20"
-        style={{ background: 'linear-gradient(175deg, #FFF0E8 0%, #FFF5F0 50%, #FFFCF8 100%)' }}>
+        style={{ background: 'linear-gradient(175deg, #FFF5F9 0%, #FFF5F0 50%, #FFFCF8 100%)' }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 70% 30%, rgba(201,24,127,0.07) 0%, transparent 50%)' }} />
+          style={{ background: 'radial-gradient(ellipse at 70% 30%, rgba(203,81,132,0.07) 0%, transparent 50%)' }} />
 
         <div className="container-custom relative">
           <FadeUp>
@@ -773,9 +854,9 @@ export default function Landing() {
                 href="/nop-cau-chuyen"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
                 style={{
-                  background: 'linear-gradient(135deg, #C9187F 0%, #E04020 60%, #F5882A 100%)',
+                  background: 'linear-gradient(135deg, #CB5184 0%, #DC76B0 60%, #F4B6D1 100%)',
                   color: 'white',
-                  boxShadow: '0 4px 20px rgba(201,24,127,0.30)',
+                  boxShadow: '0 4px 20px rgba(203,81,132,0.30)',
                 }}
               >
                 <span>GỬI CÂU CHUYỆN CỦA BẠN</span>
@@ -789,10 +870,10 @@ export default function Landing() {
 
       {/* ════════════ ĐĂNG KÝ ════════════ */}
       <section id="dang-ky" className="relative overflow-hidden py-20 section-aura-glow">
-        <div className="absolute top-0 left-1/3 w-80 h-80 opacity-20 blur-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(255,220,150,0.5), transparent)' }} />
-        <div className="absolute bottom-0 right-0 w-64 h-64 opacity-15 blur-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(201,24,127,0.4), transparent)' }} />
+        <div className="absolute top-0 left-1/3 w-80 h-80 opacity-25 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(96,48,121,0.6), transparent)' }} />
+        <div className="absolute bottom-0 right-0 w-64 h-64 opacity-20 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(153,27,85,0.5), transparent)' }} />
 
         <div className="container-custom relative">
 
@@ -831,7 +912,7 @@ export default function Landing() {
                 ].map((step, i) => (
                   <div key={i} className="flex flex-col items-center text-center relative">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2 text-xs font-bold relative z-10"
-                      style={{ background: i === 0 ? 'rgba(242,194,0,0.25)' : 'rgba(255,255,255,0.12)', border: `1.5px solid ${i === 0 ? 'rgba(242,194,0,0.5)' : 'rgba(255,255,255,0.25)'}`, color: i === 0 ? '#F2C200' : 'rgba(255,255,255,0.7)' }}>
+                      style={{ background: i === 0 ? 'rgba(242,194,0,0.25)' : 'rgba(255,255,255,0.12)', border: `1.5px solid ${i === 0 ? 'rgba(242,194,0,0.5)' : 'rgba(255,255,255,0.25)'}`, color: i === 0 ? '#D8A84F' : 'rgba(255,255,255,0.7)' }}>
                       {step.num}
                     </div>
                     <p className="text-white text-xs font-semibold leading-tight">{step.label}</p>
@@ -858,9 +939,9 @@ export default function Landing() {
                 ].map(({ label, sub }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ background: 'rgba(242,194,0,0.2)', border: '1px solid rgba(242,194,0,0.45)' }}>
+                      style={{ background: 'rgba(216,168,79,0.2)', border: '1px solid rgba(216,168,79,0.45)' }}>
                       <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
-                        <polyline points="2 6 5 9 10 3" stroke="#F2C200" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="2 6 5 9 10 3" stroke="#D8A84F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                     <div>
@@ -900,7 +981,7 @@ export default function Landing() {
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-white text-sm uppercase tracking-[0.2em] font-bold">Học phí</p>
                   <span className="font-bold text-2xl"
-                    style={{ background: 'linear-gradient(135deg, #F2C200 0%, #FFEC7A 50%, #E8B800 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                    style={{ background: 'linear-gradient(135deg, #D8A84F 0%, #E8C96A 50%, #A98436 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     25.000.000 ₫
                   </span>
                 </div>
@@ -909,7 +990,7 @@ export default function Landing() {
                   {['Nội dung 6 module', 'Ăn trưa & Teabreak', 'Tài liệu học tập', 'Chứng nhận tốt nghiệp'].map(item => (
                     <div key={item} className="flex items-center gap-1.5">
                       <svg width="8" height="8" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
-                        <polyline points="2 6 5 9 10 3" stroke="#F2C200" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="2 6 5 9 10 3" stroke="#D8A84F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <p className="text-white/80 text-xs">{item}</p>
                     </div>
@@ -941,7 +1022,7 @@ export default function Landing() {
               {regSuccess ? (
                 <div className="bg-white rounded-2xl p-10 text-center shadow-2xl">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                    style={{ background: 'linear-gradient(135deg, #C9187F, #E04020)' }}>
+                    style={{ background: 'linear-gradient(135deg, #CB5184, #DC76B0)' }}>
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                   </div>
                   <h3 className="text-[#1A0F1E] text-xl font-semibold mb-2">Hồ Sơ Đã Gửi!</h3>
@@ -1010,7 +1091,7 @@ export default function Landing() {
                       {regError && <p className="text-sm px-3 py-2 rounded-xl text-red-600 bg-red-50">{regError}</p>}
                       <button
                         type="submit" disabled={regSubmitting}
-                        className="arrow-light-trail w-full btn-gold py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 disabled:opacity-50"
+                        className="arrow-light-trail w-full cta-dark-magenta py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 disabled:opacity-50"
                       >
                         {regSubmitting ? 'Đang gửi hồ sơ...' : <><span>Nộp hồ sơ ứng tuyển</span><ArrowRight size={15} /></>}
                       </button>
@@ -1038,6 +1119,24 @@ export default function Landing() {
           />
         </div>
       </section>
+
+      <SessionDetailModal
+        sessionNum={selectedSession}
+        isOpen={sessionModalOpen}
+        onClose={() => setSessionModalOpen(false)}
+      />
+
+      {/* Zalo Button */}
+      <a href="https://zalo.me/0383575555" target="_blank" rel="noopener noreferrer"
+        className="fixed right-6 bottom-24 z-40 hover:scale-110 transition-transform duration-300 group"
+        title="Liên hệ qua Zalo">
+        <div className="relative">
+          <img src="/images/logo-zalo.png" alt="Zalo" className="w-14 h-14 md:w-16 md:h-16" />
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            Chat
+          </span>
+        </div>
+      </a>
 
       <FloatingCTA />
     </div>
