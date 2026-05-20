@@ -55,6 +55,15 @@ export default function FAQChatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
+  // Show tooltip on page load
+  useEffect(() => {
+    if (!isOpen) {
+      setShowTooltip(true)
+      const timer = setTimeout(() => setShowTooltip(false), 5000) // Show for 5 seconds
+      return () => clearTimeout(timer)
+    }
+  }, [isOpen])
+
   // Initialize with greeting
   useEffect(() => {
     if (isOpen && messages.length === 0) {
