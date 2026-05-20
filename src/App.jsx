@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import FAQChatbot from './components/FAQChatbot'
 import Landing from './pages/Landing'
 import KhoTaiLieu from './pages/KhoTaiLieu'
 import DangKy from './pages/DangKy'
@@ -26,6 +27,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <FAQChatbot />
       <Analytics />
     </div>
   )
