@@ -3,19 +3,41 @@ import { Send, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { faqData, searchFAQ } from '../data/faqData'
 
-/* Custom Chatbot Icon */
-function ChatbotIcon() {
+/* Robot Icon */
+function RobotIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Chat bubble */}
-      <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.18-.97C10.04 21.59 11 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="white" fillOpacity="0.9" />
-      {/* Lotus center */}
-      <circle cx="12" cy="12" r="2.5" fill="#CB5184" />
-      {/* Petal-like dots */}
-      <circle cx="12" cy="8" r="1.2" fill="#CB5184" />
-      <circle cx="16" cy="12" r="1.2" fill="#CB5184" />
-      <circle cx="12" cy="16" r="1.2" fill="#CB5184" />
-      <circle cx="8" cy="12" r="1.2" fill="#CB5184" />
+      {/* Head */}
+      <rect x="4" y="3" width="16" height="13" rx="2" fill="white" fillOpacity="0.95" stroke="white" strokeWidth="0.5"/>
+      {/* Left eye */}
+      <circle cx="9" cy="9" r="2" fill="#CB5184"/>
+      <circle cx="9" cy="9" r="1" fill="white"/>
+      {/* Right eye */}
+      <circle cx="15" cy="9" r="2" fill="#CB5184"/>
+      <circle cx="15" cy="9" r="1" fill="white"/>
+      {/* Mouth */}
+      <path d="M 9 12 Q 12 13.5 15 12" stroke="#CB5184" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      {/* Left antenna */}
+      <line x1="7" y1="3" x2="6" y2="0" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="6" cy="0" r="0.8" fill="white"/>
+      {/* Right antenna */}
+      <line x1="17" y1="3" x2="18" y2="0" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="18" cy="0" r="0.8" fill="white"/>
+      {/* Body */}
+      <rect x="5" y="16" width="14" height="7" rx="1" fill="white" fillOpacity="0.9" stroke="white" strokeWidth="0.5"/>
+      {/* Left arm */}
+      <rect x="1" y="17" width="4" height="2" rx="1" fill="white" fillOpacity="0.85"/>
+      {/* Right arm */}
+      <rect x="19" y="17" width="4" height="2" rx="1" fill="white" fillOpacity="0.85"/>
+      {/* Chest panel */}
+      <rect x="7" y="18" width="10" height="4" rx="1" fill="#CB5184" fillOpacity="0.3"/>
+      {/* Button dots */}
+      <circle cx="10" cy="19.5" r="0.5" fill="#CB5184"/>
+      <circle cx="12" cy="19.5" r="0.5" fill="#CB5184"/>
+      <circle cx="14" cy="19.5" r="0.5" fill="#CB5184"/>
+      <circle cx="10" cy="21" r="0.5" fill="#CB5184"/>
+      <circle cx="12" cy="21" r="0.5" fill="#CB5184"/>
+      <circle cx="14" cy="21" r="0.5" fill="#CB5184"/>
     </svg>
   )
 }
@@ -143,7 +165,7 @@ export default function FAQChatbot() {
               }} />
 
             {/* Icon */}
-            <ChatbotIcon />
+            <RobotIcon />
 
             {/* Hover glow */}
             <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"
@@ -166,15 +188,9 @@ export default function FAQChatbot() {
           {/* Header */}
           <div className="p-4 flex items-center justify-between"
             style={{ background: 'linear-gradient(135deg, #CB5184, #DC76B0)' }}>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ background: 'rgba(255,255,255,0.2)' }}>
-                <ChatbotIcon />
-              </div>
-              <div>
-                <p className="text-white font-semibold text-sm">Trợ Lý Ảo HAWEE</p>
-                <p className="text-white/70 text-xs">Em đã sẵn sàng! Anh/Chị hỏi em đi!</p>
-              </div>
+            <div>
+              <p className="text-white font-semibold text-sm">Trợ Lý Ảo HAWEE</p>
+              <p className="text-white/70 text-xs">Em đã sẵn sàng! Anh/Chị hỏi em đi!</p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
