@@ -173,7 +173,7 @@ export default function FAQChatbot() {
               </div>
               <div>
                 <p className="text-white font-semibold text-sm">Trợ Lý Ảo HAWEE</p>
-                <p className="text-white/70 text-xs">Sẵn sàng giúp đỡ</p>
+                <p className="text-white/70 text-xs">Em đã sẵn sàng! Anh/Chị hỏi em đi!</p>
               </div>
             </div>
             <button

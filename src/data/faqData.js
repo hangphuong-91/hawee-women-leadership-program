@@ -120,7 +120,7 @@ export const faqData = [
   },
   {
     id: 18,
-    question: 'Này năm bao giờ mở khóa kế tiếp?',
+    question: 'Năm nay bao giờ mở khóa kế tiếp?',
     keywords: ['năm sau', 'kế tiếp', 'khóa 2', 'khi nào', 'bao giờ', '2028'],
     answer: 'Chương trình này mở tối đa 2 khóa. Khóa thứ nhất: 2026-2027. Khóa thứ hai (nếu có): 2027-2028. Sau đó, cánh cửa sẽ đóng đến ít nhất 2028. Cơ hội là bây giờ.',
     category: 'timing',
